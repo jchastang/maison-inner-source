@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La Maison — Route de Florissant 70, Genève</title>
+<meta name="description" content="Le lieu : route de Florissant 70 à Genève. L'arrivée, la salle, l'acoustique pensée pour l'innerdance, ce qui est prévu et ce qui ne l'est pas.">
+<link rel="alternate" hreflang="fr" href="https://maison-inner-source.com/fr/la-maison/">
+<link rel="alternate" hreflang="x-default" href="https://maison-inner-source.com/fr/la-maison/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..500;1,9..144,200..500&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --nuit:#0A100F; --lin:#E3DFD4; --brume:#8A938B;
+  --indigo:#1D2C46; --seve:#5F9E7E; --phosphene:#D3CE86;
+  --souffle:5500ms; --demi:2750ms; --quart:1375ms; --huitieme:687ms; --seizieme:343ms;
+  --inspire:cubic-bezier(.34,0,.16,1); --expire:cubic-bezier(.16,1,.28,1);
+  --marge:clamp(20px,4.5vw,64px); --rail:clamp(28px,5vw,72px);
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --utile:"Instrument Sans",system-ui,-apple-system,sans-serif;
+  --piste:.2em; --piste-large:.34em;
+  --h1:clamp(40px,7.6vw,102px); --h1-graisse:250; --chapo-inter:1.75;
+  --filet:1px solid rgba(227,223,212,.11);
+  --filet-fin:1px solid rgba(227,223,212,.08);
+}
+html[lang="ru"]{
+  --display:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --utile:"IBM Plex Sans",system-ui,-apple-system,sans-serif;
+  --piste:.14em; --piste-large:.22em;
+  --h1:clamp(34px,6.6vw,88px); --h1-graisse:300; --chapo-inter:1.8;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{background:var(--nuit);color:var(--lin);font-family:var(--utile);font-size:15px;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::selection{background:rgba(211,206,134,.22);color:var(--lin)}
+.caps{font-size:10px;letter-spacing:var(--piste-large);text-transform:uppercase;color:var(--brume)}
+.caps-sm{font-size:11px;letter-spacing:var(--piste);text-transform:uppercase}
+
+#champ{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0}
+.grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.46;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.42'/%3E%3C/svg%3E")}
+
+.entete{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:clamp(18px,2.6vw,30px) var(--marge) clamp(22px,3vw,34px)}
+.entete::before{content:"";position:absolute;inset:0;pointer-events:none;background:rgba(10,16,15,.66);-webkit-backdrop-filter:blur(12px) saturate(1.05);backdrop-filter:blur(12px) saturate(1.05);-webkit-mask-image:linear-gradient(180deg,#000 62%,transparent);mask-image:linear-gradient(180deg,#000 62%,transparent);opacity:0;transition:opacity var(--huitieme) var(--expire)}
+body.parti .entete::before{opacity:1}
+.entete>*{position:relative}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.entete::before{background:rgba(10,16,15,.93)}}
+.marque{font-family:var(--display);font-variation-settings:"SOFT" 100,"WONK" 1;font-weight:300;font-size:16px;text-decoration:none;color:var(--lin);white-space:nowrap}
+.marque em{font-style:italic;opacity:.72}
+.outils{display:flex;align-items:center;gap:clamp(14px,2.2vw,30px)}
+.nav-liens{display:flex;gap:clamp(14px,2.2vw,30px)}
+@media(max-width:1080px){.nav-liens{display:none}}
+.lien{position:relative;color:var(--brume);text-decoration:none;padding-bottom:3px;transition:color var(--seizieme) var(--expire);white-space:nowrap}
+.lien::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:var(--phosphene);transform:scaleY(0) translateY(4px);transform-origin:bottom;opacity:0;transition:transform var(--seizieme) var(--expire),opacity var(--seizieme) var(--expire)}
+.lien:hover,.lien:focus-visible,.lien[aria-current]{color:var(--lin)}
+.lien:hover::after,.lien:focus-visible::after,.lien[aria-current]::after{transform:scaleY(1) translateY(0);opacity:1}
+.langues{position:relative;display:flex;align-items:center;gap:2px;padding-bottom:5px}
+.langues button{background:none;border:0;cursor:pointer;font:inherit;color:var(--brume);font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:2px 6px;opacity:.55;transition:opacity var(--seizieme) var(--expire),color var(--seizieme) var(--expire)}
+.langues button:hover,.langues button[aria-current="true"]{opacity:1;color:var(--lin)}
+.langues .sep{color:var(--brume);opacity:.28;font-size:10px;pointer-events:none}
+#curseur-langue{position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--phosphene);transition:transform var(--huitieme) var(--expire),width var(--huitieme) var(--expire)}
+
+.rail{position:fixed;left:0;top:0;bottom:0;width:var(--rail);z-index:30;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;pointer-events:none}
+.rail .vertical{writing-mode:vertical-rl;font-size:10px;letter-spacing:calc(var(--piste-large) - .04em);text-transform:uppercase;color:var(--brume)}
+#chapitre{opacity:.75;transition:opacity var(--seizieme) var(--expire)}
+.rail.permute #chapitre{opacity:0}
+.jauge{position:relative;width:1px;height:clamp(64px,13vh,116px);background:rgba(227,223,212,.14)}
+.jauge i{position:absolute;inset:0;background:var(--phosphene);opacity:.5;transform:scaleY(var(--p,0));transform-origin:top}
+.rail .ville{opacity:.4}
+@media(max-width:1080px){.rail{display:none}}
+
+main{position:relative;z-index:10}
+.sec{display:grid;grid-template-columns:var(--rail) minmax(0,1fr) var(--marge);padding-top:clamp(66px,13vh,140px)}
+.sec>*{grid-column:2}
+@media(max-width:1080px){.sec{grid-template-columns:var(--marge) minmax(0,1fr) var(--marge)}}
+.entete-seq{display:flex;align-items:baseline;gap:16px;margin-bottom:clamp(28px,5vh,54px)}
+.entete-seq .filet{flex:0 0 clamp(28px,5vw,64px);height:1px;background:var(--brume);opacity:.4;transform:translateY(-4px)}
+.rev{opacity:0;transform:translateY(20px);transition:opacity var(--demi) var(--inspire),transform var(--demi) var(--inspire)}
+.rev.vu{opacity:1;transform:none}
+
+.ouverture{min-height:78svh;display:grid;grid-template-columns:var(--rail) minmax(0,1fr) var(--marge);align-content:end;padding-bottom:clamp(20px,4vh,50px)}
+.ouverture>*{grid-column:2}
+@media(max-width:1080px){.ouverture{grid-template-columns:var(--marge) minmax(0,1fr) var(--marge)}}
+.fil{margin-bottom:clamp(22px,4vh,40px);display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.fil a{color:var(--brume);text-decoration:none;transition:color var(--seizieme) var(--expire)}
+.fil a:hover{color:var(--lin)}
+.fil .sep{opacity:.4}
+.fil .ici{color:var(--lin);opacity:.85}
+h1{font-family:var(--display);font-optical-sizing:auto;font-variation-settings:"SOFT" 100,"WONK" 1;font-weight:var(--h1-graisse);font-size:var(--h1);line-height:1.02;letter-spacing:-.022em;color:var(--lin)}
+html[lang="ru"] h1{font-variation-settings:normal}
+.alias{display:flex;align-items:center;gap:12px;margin-top:12px;font-family:var(--display);font-style:italic;font-weight:300;font-size:clamp(15px,1.5vw,21px);line-height:1.3;color:var(--brume)}
+.alias::before{content:"";flex:0 0 clamp(18px,2.4vw,30px);height:1px;background:currentColor;opacity:.55}
+html[lang="ru"] .alias{font-variation-settings:normal}
+.promesse{max-width:46ch;color:var(--brume);font-size:clamp(14px,1.15vw,16px);line-height:var(--chapo-inter);margin-top:clamp(24px,4vh,40px)}
+
+/* Escalier : le texte descend vers la droite à mesure qu'on entre */
+.marche{max-width:50ch;color:var(--brume);font-size:clamp(14px,1.05vw,15px);line-height:var(--chapo-inter)}
+.marche + .marche{margin-top:clamp(26px,4vh,44px)}
+.marche.d1{margin-left:clamp(0px,6vw,110px)}
+.marche.d2{margin-left:clamp(0px,12vw,220px)}
+@media(max-width:900px){.marche.d1,.marche.d2{margin-left:0}}
+.grande{font-family:var(--display);font-optical-sizing:auto;font-variation-settings:"SOFT" 100,"WONK" 1;font-weight:var(--h1-graisse);font-size:clamp(20px,2.6vw,34px);line-height:1.3;letter-spacing:-.01em;color:var(--lin);max-width:44ch}
+html[lang="ru"] .grande{font-variation-settings:normal;font-size:clamp(18px,2.3vw,30px)}
+
+/* Plan de la salle */
+.plan{margin-top:clamp(34px,6vh,64px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.5fr);gap:clamp(20px,4vw,56px);align-items:start}
+@media(max-width:900px){.plan{grid-template-columns:minmax(0,1fr);gap:26px}}
+.plan svg{width:100%;height:auto;overflow:visible}
+.plan .mur{stroke:var(--brume);stroke-width:1;fill:none}
+.plan .seuil{stroke:var(--phosphene);stroke-width:1;fill:none}
+.plan .tapis{stroke:var(--brume);stroke-width:1;fill:none;opacity:.28}
+.plan .hp{stroke:var(--seve);stroke-width:1;fill:none;opacity:.5}
+.plan .etiq{fill:var(--brume);font-family:var(--utile);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;opacity:.75}
+@media(prefers-reduced-motion:no-preference){
+  .plan.vu .tapis{animation:souffle-tapis 5500ms var(--inspire) infinite}
+  .plan.vu .hp{animation:souffle-hp 5500ms var(--inspire) infinite}
+}
+@keyframes souffle-tapis{0%,100%{opacity:.20}45%{opacity:.85}}
+@keyframes souffle-hp{0%,100%{opacity:.30}45%{opacity:.9}}
+.plan .legende{color:var(--brume);font-size:13px;line-height:1.7}
+.plan .legende p + p{margin-top:14px}
+.plan .legende b{font-weight:400;color:var(--lin)}
+
+/* Registres */
+.registre{border-top:var(--filet-fin)}
+.ligne{display:grid;grid-template-columns:clamp(110px,14vw,190px) minmax(0,1fr);gap:clamp(14px,2.6vw,36px);align-items:baseline;padding:clamp(15px,2.4vh,25px) 0;border-bottom:var(--filet-fin)}
+@media(max-width:820px){.ligne{grid-template-columns:minmax(0,1fr);row-gap:6px}}
+.ligne .q{font-size:10px;letter-spacing:var(--piste);text-transform:uppercase;color:var(--brume);opacity:.8}
+.ligne .f{color:var(--brume);font-size:14.5px;line-height:1.7;max-width:56ch}
+.ligne .f b{font-weight:400;color:var(--lin)}
+.remplacer{color:var(--phosphene);opacity:.8}
+
+.liste{list-style:none;max-width:62ch;border-top:var(--filet-fin)}
+.liste li{padding:clamp(13px,2vh,20px) 0;border-bottom:var(--filet-fin);color:var(--brume);font-size:14.5px;line-height:1.7}
+.liste b{font-weight:400;color:var(--lin)}
+
+.cta{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:12px;padding:15px 30px;border:1px solid rgba(227,223,212,.28);border-radius:999px;color:var(--lin);text-decoration:none;isolation:isolate;transition:border-color var(--huitieme) var(--expire),color var(--huitieme) var(--expire)}
+.cta .fond{position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,var(--seve),var(--phosphene));transform:translateY(101%);transition:transform var(--huitieme) var(--expire)}
+.cta:hover,.cta:focus-visible{color:var(--nuit);border-color:transparent}
+.cta:hover .fond,.cta:focus-visible .fond{transform:translateY(0)}
+.cta .pastille{width:5px;height:5px;border-radius:50%;background:var(--phosphene);transition:background var(--huitieme) var(--expire)}
+.cta:hover .pastille{background:var(--nuit)}
+.secondaire{position:relative;color:var(--brume);text-decoration:none;padding-bottom:4px;transition:color var(--seizieme) var(--expire)}
+.secondaire::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:currentColor;transform:scaleY(0) translateY(4px);transform-origin:bottom;transition:transform var(--seizieme) var(--expire)}
+.secondaire:hover{color:var(--lin)}
+.secondaire:hover::after{transform:scaleY(1) translateY(0)}
+.cloture{display:flex;flex-wrap:wrap;align-items:center;gap:clamp(18px,2.8vw,36px);padding:clamp(50px,9vh,100px) 0 0}
+.cloture .note{color:var(--brume);font-size:clamp(13px,1vw,14.5px);line-height:1.6;max-width:36ch}
+
+.pied-site{display:grid;grid-template-columns:var(--rail) minmax(0,1fr) var(--marge);padding:clamp(60px,11vh,130px) 0 clamp(40px,8vh,80px)}
+.pied-site>div{grid-column:2;display:flex;flex-wrap:wrap;align-items:center;gap:clamp(12px,2vw,26px);padding-top:clamp(20px,3vh,30px);border-top:var(--filet-fin);font-size:10px;letter-spacing:var(--piste);text-transform:uppercase;color:var(--brume);opacity:.5}
+.pied-site a{color:inherit;text-decoration:none;transition:color var(--seizieme) var(--expire)}
+.pied-site a:hover{color:var(--lin)}
+.pied-site .sep{opacity:.4}
+@media(max-width:1080px){.pied-site{grid-template-columns:var(--marge) minmax(0,1fr) var(--marge)}}
+
+#anneau{position:fixed;top:0;left:0;z-index:50;width:26px;height:26px;margin:-13px 0 0 -13px;border:1px solid rgba(211,206,134,.5);border-radius:50%;pointer-events:none;opacity:0;transition:opacity var(--huitieme) var(--expire),width var(--huitieme) var(--expire),height var(--huitieme) var(--expire),margin var(--huitieme) var(--expire)}
+@media(hover:none),(pointer:coarse){#anneau{display:none}}
+:focus-visible{outline:1px solid var(--phosphene);outline-offset:5px;border-radius:2px}
+.permutable{transition:opacity var(--seizieme) var(--expire),transform var(--seizieme) var(--expire)}
+body.change .permutable{opacity:0;transform:translateY(-8px)}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation:none!important;transition-duration:1ms!important}
+  #anneau{display:none}
+  .rev{opacity:1;transform:none}
+  .plan .tapis{opacity:.5}
+}
+</style>
+</head>
+<body>
+
+<canvas id="champ" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="entete">
+  <a class="marque" href="/">Maison <em>Inner Source</em></a>
+  <div class="outils">
+    <span class="nav-liens">
+      <a class="lien caps-sm" href="/fr/pratiques/innerdance-activation-kundalini/" data-i18n="nav.innerdance"></a>
+      <a class="lien caps-sm" href="/fr/pratiques/soins-du-corps/massages/" data-i18n="nav.body"></a>
+      <a class="lien caps-sm" href="/fr/la-maison/" aria-current="page" data-i18n="nav.maison"></a>
+    </span>
+    <div class="langues" role="group" data-i18n-aria="a11y.lang">
+      <button type="button" data-lang="fr" aria-current="true">FR</button><span class="sep">·</span><button type="button" data-lang="en">EN</button><span class="sep">·</span><button type="button" data-lang="ru">RU</button>
+      <span id="curseur-langue" aria-hidden="true"></span>
+    </div>
+  </div>
+</header>
+
+<div class="rail" id="rail" aria-hidden="true">
+  <span class="vertical" id="chapitre"></span>
+  <span class="jauge"><i id="jauge"></i></span>
+  <span class="vertical ville" data-i18n="ui.ville"></span>
+</div>
+
+<main>
+  <section class="ouverture" data-chapitre="ui.ch1">
+    <nav class="fil caps-sm rev" aria-label="fil d'ariane">
+      <a href="/" class="permutable" data-i18n="fil.accueil"></a><span class="sep">·</span>
+      <span class="ici permutable" data-i18n="fil.ici"></span>
+    </nav>
+    <p class="caps rev permutable" data-i18n="p.surtitre" style="margin-bottom:18px"></p>
+    <h1 class="rev permutable" data-i18n="p.h1"></h1>
+    <p class="alias rev permutable" data-i18n="p.alias"></p>
+    <p class="promesse rev permutable" data-i18n="p.promesse"></p>
+  </section>
+
+  <!-- 01 L'arrivée -->
+  <section class="sec" data-chapitre="ui.ch2">
+    <div class="entete-seq rev"><span class="filet"></span><span class="caps permutable" data-i18n="s1.eyebrow"></span></div>
+    <p class="grande rev permutable" data-i18n="s1.lead"></p>
+    <div class="registre rev" style="margin-top:clamp(30px,5vh,52px)">
+      <div class="ligne"><span class="q permutable" data-i18n="ar1.q"></span><span class="f permutable" data-i18n-html="ar1.f"></span></div>
+      <div class="ligne"><span class="q permutable" data-i18n="ar2.q"></span><span class="f permutable" data-i18n-html="ar2.f"></span></div>
+      <div class="ligne"><span class="q permutable" data-i18n="ar3.q"></span><span class="f permutable" data-i18n-html="ar3.f"></span></div>
+      <div class="ligne"><span class="q permutable" data-i18n="ar4.q"></span><span class="f permutable" data-i18n-html="ar4.f"></span></div>
+      <div class="ligne"><span class="q permutable" data-i18n="ar5.q"></span><span class="f permutable" data-i18n-html="ar5.f"></span></div>
+    </div>
+  </section>
+
+  <!-- 02 La salle -->
+  <section class="sec" data-chapitre="ui.ch3">
+    <div class="entete-seq rev"><span class="filet"></span><span class="caps permutable" data-i18n="s2.eyebrow"></span></div>
+    <p class="grande rev permutable" data-i18n="s2.lead"></p>
+
+    <figure class="plan rev" id="plan">
+      <svg viewBox="0 0 520 420" role="img" aria-labelledby="plan-titre">
+        <title id="plan-titre">Plan schématique de la salle et disposition des vingt tapis</title>
+        <rect class="mur" x="40" y="40" width="440" height="340" rx="4"/>
+        <path class="seuil" d="M40 300 L40 240"/>
+        <text class="etiq" x="16" y="274" text-anchor="end" transform="rotate(-90 16 274)">Seuil</text>
+
+        <circle class="hp" cx="70"  cy="70"  r="7" style="animation-delay:0ms"/>
+        <circle class="hp" cx="450" cy="70"  r="7" style="animation-delay:1375ms"/>
+        <circle class="hp" cx="70"  cy="350" r="7" style="animation-delay:2750ms"/>
+        <circle class="hp" cx="450" cy="350" r="7" style="animation-delay:4125ms"/>
+
+        <rect class="tapis" x="110" y="86"  width="60" height="30" rx="6" style="animation-delay:0ms"/>
+        <rect class="tapis" x="190" y="86"  width="60" height="30" rx="6" style="animation-delay:140ms"/>
+        <rect class="tapis" x="270" y="86"  width="60" height="30" rx="6" style="animation-delay:280ms"/>
+        <rect class="tapis" x="350" y="86"  width="60" height="30" rx="6" style="animation-delay:420ms"/>
+        <rect class="tapis" x="110" y="146" width="60" height="30" rx="6" style="animation-delay:560ms"/>
+        <rect class="tapis" x="190" y="146" width="60" height="30" rx="6" style="animation-delay:700ms"/>
+        <rect class="tapis" x="270" y="146" width="60" height="30" rx="6" style="animation-delay:840ms"/>
+        <rect class="tapis" x="350" y="146" width="60" height="30" rx="6" style="animation-delay:980ms"/>
+        <rect class="tapis" x="110" y="206" width="60" height="30" rx="6" style="animation-delay:1120ms"/>
+        <rect class="tapis" x="190" y="206" width="60" height="30" rx="6" style="animation-delay:1260ms"/>
+        <rect class="tapis" x="270" y="206" width="60" height="30" rx="6" style="animation-delay:1400ms"/>
+        <rect class="tapis" x="350" y="206" width="60" height="30" rx="6" style="animation-delay:1540ms"/>
+        <rect class="tapis" x="110" y="266" width="60" height="30" rx="6" style="animation-delay:1680ms"/>
+        <rect class="tapis" x="190" y="266" width="60" height="30" rx="6" style="animation-delay:1820ms"/>
+        <rect class="tapis" x="270" y="266" width="60" height="30" rx="6" style="animation-delay:1960ms"/>
+        <rect class="tapis" x="350" y="266" width="60" height="30" rx="6" style="animation-delay:2100ms"/>
+        <rect class="tapis" x="110" y="326" width="60" height="30" rx="6" style="animation-delay:2240ms"/>
+        <rect class="tapis" x="190" y="326" width="60" height="30" rx="6" style="animation-delay:2380ms"/>
+        <rect class="tapis" x="270" y="326" width="60" height="30" rx="6" style="animation-delay:2520ms"/>
+        <rect class="tapis" x="350" y="326" width="60" height="30" rx="6" style="animation-delay:2660ms"/>
+
+        <text class="etiq" x="440" y="30">20 tapis</text>
+      </svg>
+      <figcaption class="legende">
+        <p class="permutable" data-i18n-html="plan.l1"></p>
+        <p class="permutable" data-i18n-html="plan.l2"></p>
+        <p class="permutable" data-i18n-html="plan.l3"></p>
+      </figcaption>
+    </figure>
+
+    <div class="registre rev" style="margin-top:clamp(34px,6vh,64px)">
+      <div class="ligne"><span class="q permutable" data-i18n="sa1.q"></span><span class="f permutable" data-i18n-html="sa1.f"></span></div>
+      <div class="ligne"><span class="q permutable" data-i18n="sa2.q"></span><span class="f permutable" data-i18n-html="sa2.f"></span></div>
+      <div class="ligne"><span class="q permutable" data-i18n="sa3.q"></span><span class="f permutable" data-i18n-html="sa3.f"></span></div>
+      <div class="ligne"><span class="q permutable" data-i18n="sa4.q"></span><span class="f permutable" data-i18n-html="sa4.f"></span></div>
+      <div class="ligne"><span class="q permutable" data-i18n="sa5.q"></span><span class="f permutable" data-i18n-html="sa5.f"></span></div>
+    </div>
+  </section>
+
+  <!-- 03 L'architecture du silence -->
+  <section class="sec" data-chapitre="ui.ch4">
+    <div class="entete-seq rev"><span class="filet"></span><span class="caps permutable" data-i18n="s3.eyebrow"></span></div>
+    <p class="grande rev permutable" data-i18n="s3.lead"></p>
+    <div class="rev" style="margin-top:clamp(30px,5vh,52px)">
+      <p class="marche permutable" data-i18n-html="s3.m1"></p>
+      <p class="marche d1 permutable" data-i18n-html="s3.m2"></p>
+      <p class="marche d2 permutable" data-i18n-html="s3.m3"></p>
+    </div>
+  </section>
+
+  <!-- 04 Ce qui est prévu -->
+  <section class="sec" data-chapitre="ui.ch5">
+    <div class="entete-seq rev"><span class="filet"></span><span class="caps permutable" data-i18n="s4.eyebrow"></span></div>
+    <ul class="liste rev">
+      <li class="permutable" data-i18n-html="pr1"></li>
+      <li class="permutable" data-i18n-html="pr2"></li>
+      <li class="permutable" data-i18n-html="pr3"></li>
+      <li class="permutable" data-i18n-html="pr4"></li>
+      <li class="permutable" data-i18n-html="pr5"></li>
+    </ul>
+  </section>
+
+  <!-- 05 Accessibilité -->
+  <section class="sec" data-chapitre="ui.ch6">
+    <div class="entete-seq rev"><span class="filet"></span><span class="caps permutable" data-i18n="s5.eyebrow"></span></div>
+    <p class="grande rev permutable" data-i18n="s5.lead"></p>
+    <div class="registre rev" style="margin-top:clamp(30px,5vh,52px)">
+      <div class="ligne"><span class="q permutable" data-i18n="ac1.q"></span><span class="f permutable" data-i18n-html="ac1.f"></span></div>
+      <div class="ligne"><span class="q permutable" data-i18n="ac2.q"></span><span class="f permutable" data-i18n-html="ac2.f"></span></div>
+      <div class="ligne"><span class="q permutable" data-i18n="ac3.q"></span><span class="f permutable" data-i18n-html="ac3.f"></span></div>
+      <div class="ligne"><span class="q permutable" data-i18n="ac4.q"></span><span class="f permutable" data-i18n-html="ac4.f"></span></div>
+    </div>
+  </section>
+
+  <!-- 06 Qui vous recevez -->
+  <section class="sec" data-chapitre="ui.ch7">
+    <div class="entete-seq rev"><span class="filet"></span><span class="caps permutable" data-i18n="s6.eyebrow"></span></div>
+    <p class="grande rev permutable" data-i18n="s6.lead"></p>
+    <p class="marche rev permutable" data-i18n-html="s6.texte" style="margin-top:26px"></p>
+    <div class="cloture rev">
+      <a class="cta caps-sm" href="/fr/pratiques/innerdance-activation-kundalini/#agenda"><span class="fond"></span><span class="pastille"></span><span class="permutable" data-i18n="p.cta"></span></a>
+      <span class="note permutable" data-i18n="cloture.note"></span>
+    </div>
+  </section>
+
+  <footer class="pied-site">
+    <div>
+      <span class="permutable" data-i18n="pied.droits"></span><span class="sep">·</span>
+      <a href="/mentions-legales/" class="permutable" data-i18n="pied.legal"></a><span class="sep">·</span>
+      <a href="/confidentialite/" class="permutable" data-i18n="pied.confid"></a>
+    </div>
+  </footer>
+</main>
+
+<div id="anneau" aria-hidden="true"></div>
+
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org","@graph":[
+ {"@type":"HealthAndBeautyBusiness","@id":"https://maison-inner-source.com/#maison","name":"Maison Inner Source",
+  "description":"Maison de soin à Genève : innerdance, massages, pressothérapie et Endosphères Therapy.",
+  "url":"https://maison-inner-source.com/","currenciesAccepted":"CHF",
+  "address":{"@type":"PostalAddress","streetAddress":"Route de Florissant 70","addressLocality":"Genève","postalCode":"1206","addressRegion":"GE","addressCountry":"CH"},
+  "geo":{"@type":"GeoCoordinates","latitude":"46.1918","longitude":"6.1593"},
+  "areaServed":{"@type":"City","name":"Genève"},
+  "publicAccess":true},
+ {"@type":"WebPage","name":"La Maison","url":"https://maison-inner-source.com/fr/la-maison/",
+  "about":{"@id":"https://maison-inner-source.com/#maison"}}
+]}
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+const DICO={
+ fr:{
+  "html.title":"La Maison — Route de Florissant 70, Genève",
+  "a11y.lang":"Choix de la langue",
+  "nav.innerdance":"Innerdance","nav.body":"Soins du corps","nav.maison":"La Maison",
+  "ui.ville":"Genève",
+  "ui.ch1":"La Maison","ui.ch2":"L'arrivée","ui.ch3":"La salle","ui.ch4":"Le silence","ui.ch5":"Sur place","ui.ch6":"Accessibilité","ui.ch7":"Vous recevoir",
+  "fil.accueil":"Accueil","fil.ici":"La Maison",
+  "p.surtitre":"Route de Florissant 70","p.h1":"La Maison",
+  "p.alias":"un lieu, et les règles qui le tiennent",
+  "p.promesse":"Cette page ne vend pas une atmosphère. Elle décrit un lieu réel : combien de marches, quel sol, quelle acoustique, ce qui est fourni et ce qui ne l'est pas. Vous devez pouvoir vous représenter la pièce avant d'y entrer — c'est la moitié du travail de mise en confiance.",
+  "p.cta":"Voir les prochaines dates",
+  "s1.eyebrow":"L'arrivée",
+  "s1.lead":"Le trajet compte autant que la séance. On n'arrive pas dans le même état selon qu'on a cherché la porte pendant dix minutes ou qu'on savait exactement où aller.",
+  "ar1.q":"Depuis l'arrêt Krieg","ar1.f":"Lignes 8 et 21, l'immeuble est <b>juste en face de l'arrêt</b>. <span class='remplacer'>[Décrire le repère visuel : couleur de la façade, commerce voisin, numéro visible.]</span>",
+  "ar2.q":"En voiture","ar2.f":"Parking de Florissant, à moins de deux minutes à pied. <span class='remplacer'>[Tarif horaire indicatif, et préciser s'il existe des places en zone bleue à proximité.]</span>",
+  "ar3.q":"L'entrée","ar3.f":"<span class='remplacer'>[Immeuble ou villa. Y a-t-il une plaque au nom de la Maison ? Faut-il sonner, composer un code, ou la porte est-elle ouverte aux heures de séance ?]</span>",
+  "ar4.q":"L'accès à l'étage","ar4.f":"<span class='remplacer'>[Étage. Ascenseur ou escalier. Nombre de marches. Présence d'une rampe.]</span>",
+  "ar5.q":"Quand venir","ar5.f":"Nous vous demandons d'arriver <b>dix minutes avant</b> l'heure annoncée. La porte est fermée à l'heure exacte : une fois la séance commencée, personne n'entre plus. C'est la seule règle que nous ne négocions pas.",
+  "s2.eyebrow":"La salle",
+  "s2.lead":"Une seule pièce, vingt tapis, quatre points de diffusion. Le plan ci-dessous est celui de la salle réelle, pas une illustration.",
+  "plan.l1":"<b>Vingt tapis</b>, disposés en cinq rangées de quatre. L'espace entre deux tapis est calculé pour que personne ne se touche même en bougeant beaucoup.",
+  "plan.l2":"<b>Quatre points de diffusion</b>, un par angle. C'est ce qui permet au son de circuler autour des corps plutôt que de venir d'une scène. Pour l'innerdance, ce détail change tout : il n'y a pas de direction à écouter.",
+  "plan.l3":"<b>Un seul seuil.</b> On entre et on sort par le même côté, celui qui est le plus éloigné des tapis du fond.",
+  "sa1.q":"Dimensions","sa1.f":"<span class='remplacer'>[Surface en m², forme de la pièce, hauteur sous plafond.]</span>",
+  "sa2.q":"Le sol","sa2.f":"<span class='remplacer'>[Parquet, béton ciré, moquette ? Chauffage au sol ?]</span>",
+  "sa3.q":"L'acoustique","sa3.f":"<span class='remplacer'>[Ce qui a été fait : rideaux lourds, panneaux absorbants, tapis, doublage. Si rien n'a été traité, le dire.]</span>",
+  "sa4.q":"Le son","sa4.f":"<span class='remplacer'>[Marque et type d'enceintes, présence d'un caisson de basses. Les basses fréquences sont l'outil principal de l'innerdance : ce détail intéresse les praticiens et rassure les initiés.]</span>",
+  "sa5.q":"La lumière","sa5.f":"<span class='remplacer'>[Orientation des fenêtres, type d'occultation, éclairage utilisé pendant les séances : variateur, bougies, lumière chaude.]</span>",
+  "s3.eyebrow":"L'architecture du silence",
+  "s3.lead":"Le silence n'est pas une qualité des murs. C'est une suite de décisions, et elles ont un coût.",
+  "s3.m1":"<b>Les téléphones restent à l'entrée.</b> Pas en mode silencieux, pas dans un sac : dans un casier, éteints. Une vibration dans une pièce où vingt personnes ont les yeux fermés s'entend par tout le monde.",
+  "s3.m2":"<b>Une seule séance à la fois, avec un intervalle entre deux groupes.</b> Personne ne croise le groupe précédent en train de repartir. Cela nous fait perdre un créneau chaque jour ; c'est ce qui permet de sortir d'une séance sans être immédiatement remis dans le bruit.",
+  "s3.m3":"<b>Aucune musique dans l'entrée, aucune conversation dans le couloir.</b> Le silence commence avant la salle, sinon il n'existe pas dedans. C'est aussi pour cela que nous ne diffusons rien pendant les massages, sauf demande explicite.",
+  "s4.eyebrow":"Ce qui est prévu",
+  "pr1":"<b>Fourni :</b> tapis, couverture, coussins, eau. <span class='remplacer'>[Compléter : plaids, bolsters, masques de nuit ?]</span>",
+  "pr2":"<b>À apporter :</b> une tenue confortable et des chaussettes chaudes. La température du corps baisse pendant la trame sonore.",
+  "pr3":"<b>Vestiaire :</b> <span class='remplacer'>[Casiers fermant à clé ou simple penderie ? Où déposer ses affaires ?]</span>",
+  "pr4":"<b>Sanitaires :</b> <span class='remplacer'>[Toilettes, douche disponible ou non.]</span>",
+  "pr5":"<b>Après la séance :</b> <span class='remplacer'>[Thé, tisane, espace où rester assis ? Combien de temps peut-on rester ?]</span>",
+  "s5.eyebrow":"Accessibilité",
+  "s5.lead":"Nous préférons vous dire non par écrit plutôt que de vous laisser découvrir un obstacle sur place.",
+  "ac1.q":"Fauteuil roulant","ac1.f":"<span class='remplacer'>[Réponse franche : accessible, accessible avec aide, ou non accessible. Préciser la largeur de porte et la présence de marches.]</span>",
+  "ac2.q":"Mobilité réduite","ac2.f":"<span class='remplacer'>[Escalier praticable ? Rampe ? Possibilité de s'asseoir plutôt que de s'allonger pendant une séance ?]</span>",
+  "ac3.q":"S'allonger au sol","ac3.f":"Si le sol est difficile pour vous, dites-le à la réservation. <span class='remplacer'>[Préciser si une chaise longue, un fauteuil ou un rehaussement est disponible.]</span>",
+  "ac4.q":"Venir accompagné","ac4.f":"<span class='remplacer'>[Une personne accompagnante peut-elle rester dans la salle ou attendre à côté ?]</span>",
+  "s6.eyebrow":"Vous recevoir",
+  "s6.lead":"Deux personnes, un lieu, et le choix de ne pas remplir la salle plus que nécessaire.",
+  "s6.texte":"Le détail de nos formations et de nos dates figure sur la page Innerdance, dans la section <a class='secondaire' href='/fr/pratiques/innerdance-activation-kundalini/'>La transmission</a>. Nous préférons ne pas les répéter ici : cette page-ci parle du lieu, pas de nous.",
+  "cloture.note":"Une question sur le lieu avant de venir ? Écrivez-nous, nous répondons nous-mêmes.",
+  "pied.droits":"© Maison Inner Source","pied.legal":"Mentions légales","pied.confid":"Confidentialité"
+ },
+ en:{
+  "html.title":"The House — Route de Florissant 70, Geneva",
+  "a11y.lang":"Language",
+  "nav.innerdance":"Innerdance","nav.body":"Body treatments","nav.maison":"The House",
+  "ui.ville":"Geneva",
+  "ui.ch1":"The House","ui.ch2":"Arriving","ui.ch3":"The room","ui.ch4":"Silence","ui.ch5":"On site","ui.ch6":"Accessibility","ui.ch7":"Receiving you",
+  "fil.accueil":"Home","fil.ici":"The House",
+  "p.surtitre":"Route de Florissant 70","p.h1":"The House",
+  "p.alias":"a place, and the rules that hold it",
+  "p.promesse":"This page does not sell an atmosphere. It describes a real place: how many steps, what floor, what acoustics, what is provided and what is not. You should be able to picture the room before entering it — that is half the work of putting someone at ease.",
+  "p.cta":"See the next dates",
+  "s1.eyebrow":"Arriving",
+  "s1.lead":"The journey matters as much as the session. You do not arrive in the same state having hunted for the door for ten minutes as you do knowing exactly where to go.",
+  "ar1.q":"From Krieg stop","ar1.f":"Lines 8 and 21; the building is <b>directly opposite the stop</b>. <span class='remplacer'>[Describe the visual landmark: façade colour, neighbouring shop, visible number.]</span>",
+  "ar2.q":"By car","ar2.f":"Florissant car park, under two minutes on foot. <span class='remplacer'>[Indicative hourly rate, and whether blue-zone spaces exist nearby.]</span>",
+  "ar3.q":"The entrance","ar3.f":"<span class='remplacer'>[Building or villa. Is there a nameplate? Ring, entry code, or door open during session hours?]</span>",
+  "ar4.q":"Reaching the floor","ar4.f":"<span class='remplacer'>[Which floor. Lift or stairs. Number of steps. Handrail?]</span>",
+  "ar5.q":"When to come","ar5.f":"We ask you to arrive <b>ten minutes early</b>. The door closes at the stated time: once a session has begun, nobody comes in. It is the one rule we do not negotiate.",
+  "s2.eyebrow":"The room",
+  "s2.lead":"One room, twenty mats, four points of diffusion. The plan below is the actual room, not an illustration.",
+  "plan.l1":"<b>Twenty mats</b>, in five rows of four. The gap between mats is set so that nobody touches anyone else, even while moving a great deal.",
+  "plan.l2":"<b>Four points of diffusion</b>, one per corner. This lets sound circulate around bodies rather than come from a stage. For innerdance this changes everything: there is no direction to listen to.",
+  "plan.l3":"<b>One threshold only.</b> You come in and go out on the same side, the one furthest from the back mats.",
+  "sa1.q":"Dimensions","sa1.f":"<span class='remplacer'>[Floor area in m², shape of the room, ceiling height.]</span>",
+  "sa2.q":"The floor","sa2.f":"<span class='remplacer'>[Wood, polished concrete, carpet? Underfloor heating?]</span>",
+  "sa3.q":"Acoustics","sa3.f":"<span class='remplacer'>[What was done: heavy curtains, absorbing panels, rugs, lining. If nothing was treated, say so.]</span>",
+  "sa4.q":"Sound system","sa4.f":"<span class='remplacer'>[Speaker brand and type, presence of a subwoofer. Low frequencies are innerdance's main tool: this detail matters to practitioners and reassures those who know.]</span>",
+  "sa5.q":"Light","sa5.f":"<span class='remplacer'>[Window orientation, type of blackout, lighting used during sessions: dimmer, candles, warm light.]</span>",
+  "s3.eyebrow":"The architecture of silence",
+  "s3.lead":"Silence is not a quality of walls. It is a series of decisions, and they have a cost.",
+  "s3.m1":"<b>Phones stay at the entrance.</b> Not on silent, not in a bag: in a locker, switched off. A vibration in a room where twenty people have their eyes closed is heard by everyone.",
+  "s3.m2":"<b>One session at a time, with a gap between groups.</b> Nobody crosses the previous group on its way out. It costs us a slot every day; it is what lets you leave a session without being put straight back into noise.",
+  "s3.m3":"<b>No music in the entrance, no conversation in the corridor.</b> Silence starts before the room, or it does not exist inside it. It is also why we play nothing during massages unless you ask.",
+  "s4.eyebrow":"What is provided",
+  "pr1":"<b>Provided:</b> mat, blanket, cushions, water. <span class='remplacer'>[Complete: throws, bolsters, eye masks?]</span>",
+  "pr2":"<b>To bring:</b> comfortable clothes and warm socks. Body temperature drops during the sound score.",
+  "pr3":"<b>Changing area:</b> <span class='remplacer'>[Lockable lockers or simple hanging space? Where do belongings go?]</span>",
+  "pr4":"<b>Facilities:</b> <span class='remplacer'>[Toilets, shower available or not.]</span>",
+  "pr5":"<b>After the session:</b> <span class='remplacer'>[Tea, herbal infusion, a space to sit? How long may one stay?]</span>",
+  "s5.eyebrow":"Accessibility",
+  "s5.lead":"We would rather say no in writing than let you discover an obstacle on arrival.",
+  "ac1.q":"Wheelchair","ac1.f":"<span class='remplacer'>[Straight answer: accessible, accessible with help, or not accessible. State door width and any steps.]</span>",
+  "ac2.q":"Reduced mobility","ac2.f":"<span class='remplacer'>[Are the stairs manageable? Handrail? Possibility of sitting rather than lying during a session?]</span>",
+  "ac3.q":"Lying on the floor","ac3.f":"If the floor is difficult for you, say so when booking. <span class='remplacer'>[State whether a recliner, armchair or raised support is available.]</span>",
+  "ac4.q":"Coming with someone","ac4.f":"<span class='remplacer'>[Can a companion stay in the room or wait next door?]</span>",
+  "s6.eyebrow":"Receiving you",
+  "s6.lead":"Two people, one place, and the choice not to fill the room more than necessary.",
+  "s6.texte":"Details of our training and its dates are on the Innerdance page, in the <a class='secondaire' href='/en/practices/innerdance-kundalini-activation/'>transmission</a> section. We would rather not repeat them here: this page is about the place, not about us.",
+  "cloture.note":"A question about the place before coming? Write to us — we answer ourselves.",
+  "pied.droits":"© Maison Inner Source","pied.legal":"Legal notice","pied.confid":"Privacy"
+ },
+ ru:{
+  "html.title":"Дом — Route de Florissant 70, Женева",
+  "a11y.lang":"Выбор языка",
+  "nav.innerdance":"Иннердэнс","nav.body":"Уход за телом","nav.maison":"Дом",
+  "ui.ville":"Женева",
+  "ui.ch1":"Дом","ui.ch2":"Приход","ui.ch3":"Зал","ui.ch4":"Тишина","ui.ch5":"На месте","ui.ch6":"Доступность","ui.ch7":"Как мы принимаем",
+  "fil.accueil":"Главная","fil.ici":"Дом",
+  "p.surtitre":"Route de Florissant 70","p.h1":"Дом",
+  "p.alias":"место и правила, которые его держат",
+  "p.promesse":"Эта страница не продаёт атмосферу. Она описывает реальное место: сколько ступеней, какой пол, какая акустика, что предоставляется и что нет. Вы должны суметь представить зал до того, как войдёте, — это половина работы по созданию доверия.",
+  "p.cta":"Ближайшие даты",
+  "s1.eyebrow":"Приход",
+  "s1.lead":"Дорога значит не меньше самой сессии. Состояние человека, который десять минут искал дверь, отличается от состояния того, кто точно знал, куда идти.",
+  "ar1.q":"От остановки Krieg","ar1.f":"Линии 8 и 21; здание <b>прямо напротив остановки</b>. <span class='remplacer'>[Описать визуальный ориентир: цвет фасада, соседний магазин, видимый номер.]</span>",
+  "ar2.q":"На машине","ar2.f":"Парковка Florissant, менее двух минут пешком. <span class='remplacer'>[Ориентировочный тариф и наличие мест синей зоны рядом.]</span>",
+  "ar3.q":"Вход","ar3.f":"<span class='remplacer'>[Дом или вилла. Есть ли табличка? Звонить, набирать код или дверь открыта в часы сессий?]</span>",
+  "ar4.q":"Подъём на этаж","ar4.f":"<span class='remplacer'>[Этаж. Лифт или лестница. Число ступеней. Наличие перил.]</span>",
+  "ar5.q":"Когда приходить","ar5.f":"Мы просим приходить <b>за десять минут</b> до указанного времени. Дверь закрывается ровно в срок: после начала сессии никто не входит. Это единственное правило, которое мы не обсуждаем.",
+  "s2.eyebrow":"Зал",
+  "s2.lead":"Одна комната, двадцать мест, четыре точки звука. План ниже — это реальный зал, а не иллюстрация.",
+  "plan.l1":"<b>Двадцать ковриков</b> в пяти рядах по четыре. Расстояние между ними рассчитано так, чтобы никто никого не задел даже при активном движении.",
+  "plan.l2":"<b>Четыре точки звука</b>, по одной в каждом углу. Звук движется вокруг тел, а не приходит со сцены. Для иннердэнс это меняет всё: нет направления, в которое нужно слушать.",
+  "plan.l3":"<b>Один порог.</b> Вход и выход с одной стороны — самой дальней от дальних ковриков.",
+  "sa1.q":"Размеры","sa1.f":"<span class='remplacer'>[Площадь в м², форма помещения, высота потолка.]</span>",
+  "sa2.q":"Пол","sa2.f":"<span class='remplacer'>[Паркет, шлифованный бетон, ковролин? Тёплый пол?]</span>",
+  "sa3.q":"Акустика","sa3.f":"<span class='remplacer'>[Что сделано: плотные шторы, поглощающие панели, ковры, обшивка. Если ничего — так и сказать.]</span>",
+  "sa4.q":"Звук","sa4.f":"<span class='remplacer'>[Марка и тип акустики, наличие сабвуфера. Низкие частоты — основной инструмент иннердэнс: эта деталь важна практикам и убеждает знающих.]</span>",
+  "sa5.q":"Свет","sa5.f":"<span class='remplacer'>[Ориентация окон, тип затемнения, освещение во время сессий: диммер, свечи, тёплый свет.]</span>",
+  "s3.eyebrow":"Архитектура тишины",
+  "s3.lead":"Тишина — не свойство стен. Это ряд решений, и у них есть цена.",
+  "s3.m1":"<b>Телефоны остаются на входе.</b> Не в беззвучном режиме и не в сумке: в шкафчике, выключенными. Вибрацию в комнате, где двадцать человек лежат с закрытыми глазами, слышат все.",
+  "s3.m2":"<b>Одна сессия за раз, с промежутком между группами.</b> Никто не сталкивается с уходящей предыдущей группой. Это стоит нам одного слота в день; и это позволяет выйти из сессии, не попадая сразу в шум.",
+  "s3.m3":"<b>Никакой музыки в холле и разговоров в коридоре.</b> Тишина начинается до зала, иначе внутри её не будет. По той же причине во время массажа мы ничего не включаем, если вы сами не попросите.",
+  "s4.eyebrow":"Что предусмотрено",
+  "pr1":"<b>Предоставляется:</b> коврик, плед, подушки, вода. <span class='remplacer'>[Дополнить: пледы, болстеры, маски для глаз?]</span>",
+  "pr2":"<b>Взять с собой:</b> удобную одежду и тёплые носки. Во время звукового полотна температура тела снижается.",
+  "pr3":"<b>Раздевалка:</b> <span class='remplacer'>[Запирающиеся шкафчики или просто вешалка? Куда класть вещи?]</span>",
+  "pr4":"<b>Санузел:</b> <span class='remplacer'>[Туалет, есть ли душ.]</span>",
+  "pr5":"<b>После сессии:</b> <span class='remplacer'>[Чай, травяной настой, место, где можно посидеть? Сколько можно оставаться?]</span>",
+  "s5.eyebrow":"Доступность",
+  "s5.lead":"Мы предпочитаем сказать «нет» письменно, а не позволить вам столкнуться с препятствием на месте.",
+  "ac1.q":"Инвалидная коляска","ac1.f":"<span class='remplacer'>[Прямой ответ: доступно, доступно с помощью или недоступно. Указать ширину двери и наличие ступеней.]</span>",
+  "ac2.q":"Ограниченная подвижность","ac2.f":"<span class='remplacer'>[Проходима ли лестница? Есть ли перила? Возможно ли сидеть, а не лежать во время сессии?]</span>",
+  "ac3.q":"Лежать на полу","ac3.f":"Если пол для вас затруднителен, скажите при записи. <span class='remplacer'>[Указать, есть ли шезлонг, кресло или подъём.]</span>",
+  "ac4.q":"Прийти с сопровождающим","ac4.f":"<span class='remplacer'>[Может ли сопровождающий остаться в зале или подождать рядом?]</span>",
+  "s6.eyebrow":"Как мы принимаем",
+  "s6.lead":"Два человека, одно место и решение не заполнять зал больше необходимого.",
+  "s6.texte":"Подробности нашего обучения и даты — на странице «Иннердэнс», в разделе <a class='secondaire' href='/ru/praktiki/innerdens-aktivatsiya-kundalini/'>«Преемственность»</a>. Мы не повторяем их здесь: эта страница о месте, а не о нас.",
+  "cloture.note":"Есть вопрос о месте до визита? Напишите нам — мы отвечаем сами.",
+  "pied.droits":"© Maison Inner Source","pied.legal":"Правовая информация","pied.confid":"Конфиденциальность"
+ }
+};
+
+const SOBRE=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const q=s=>document.querySelector(s), qa=s=>Array.from(document.querySelectorAll(s));
+
+let langue='fr',cyrilliqueCharge=false,chapitreActif='ui.ch1';
+function chargerCyrillique(){
+  if(cyrilliqueCharge)return; cyrilliqueCharge=true;
+  const l=document.createElement('link'); l.rel='stylesheet';
+  l.href='https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=IBM+Plex+Sans:wght@400;500&display=swap';
+  document.head.appendChild(l);
+}
+function peindre(l){
+  const d=DICO[l];
+  qa('[data-i18n]').forEach(el=>{const v=d[el.dataset.i18n]; if(v!==undefined) el.textContent=v;});
+  qa('[data-i18n-html]').forEach(el=>{const v=d[el.dataset.i18nHtml]; if(v!==undefined) el.innerHTML=v;});
+  qa('[data-i18n-aria]').forEach(el=>{const v=d[el.dataset.i18nAria]; if(v!==undefined) el.setAttribute('aria-label',v);});
+  q('#chapitre').textContent=d[chapitreActif];
+  document.title=d['html.title'];
+}
+function placerCurseur(){
+  const a=q('.langues button[aria-current="true"]'),c=q('#curseur-langue');
+  c.style.width=a.offsetWidth+'px'; c.style.transform=`translateX(${a.offsetLeft}px)`;
+}
+function definirLangue(l,animer=true){
+  if(l===langue&&animer)return;
+  if(l==='ru')chargerCyrillique();
+  langue=l; document.documentElement.lang=l;
+  qa('.langues button').forEach(b=>b.setAttribute('aria-current',String(b.dataset.lang===l)));
+  const url=new URL(location); url.searchParams.set('lang',l); history.replaceState({},'',url);
+  if(!animer||SOBRE){peindre(l); requestAnimationFrame(placerCurseur); return;}
+  document.body.classList.add('change');
+  setTimeout(()=>{peindre(l); document.fonts.ready.then(placerCurseur); requestAnimationFrame(()=>document.body.classList.remove('change'));},343);
+}
+qa('.langues button').forEach(b=>b.addEventListener('click',()=>definirLangue(b.dataset.lang)));
+const initiale=new URL(location).searchParams.get('lang');
+definirLangue(DICO[initiale]?initiale:'fr',false);
+addEventListener('resize',placerCurseur);
+document.fonts&&document.fonts.ready.then(placerCurseur);
+
+function definirChapitre(cle){
+  if(cle===chapitreActif)return;
+  chapitreActif=cle;
+  const rail=q('#rail');
+  if(SOBRE){q('#chapitre').textContent=DICO[langue][cle]; return;}
+  rail.classList.add('permute');
+  setTimeout(()=>{q('#chapitre').textContent=DICO[langue][cle]; rail.classList.remove('permute');},343);
+}
+const ioChapitre=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)definirChapitre(e.target.dataset.chapitre);});},{rootMargin:'-45% 0px -45% 0px'});
+qa('[data-chapitre]').forEach(el=>ioChapitre.observe(el));
+
+/* ---------- Le champ : mode minéral et apaisant ---------- */
+const frag=`
+precision highp float;
+varying vec2 vUv;
+uniform vec2 uRes; uniform float uTime; uniform vec2 uSouris;
+float hash(vec2 p){ return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453123); }
+float bruit(vec2 p){
+  vec2 i=floor(p),f=fract(p); vec2 u=f*f*(3.0-2.0*f);
+  return mix(mix(hash(i),hash(i+vec2(1.,0.)),u.x),mix(hash(i+vec2(0.,1.)),hash(i+vec2(1.,1.)),u.x),u.y);
+}
+float fbm(vec2 p){ float v=0.0,a=0.5; for(int i=0;i<5;i++){v+=a*bruit(p); p*=2.03; a*=0.5;} return v; }
+void main(){
+  vec2 uv=vUv; float ratio=uRes.x/uRes.y; vec2 p=vec2(uv.x*ratio,uv.y); float t=uTime;
+
+  /* dérive minérale : sept fois plus lente que sur les pages de pratique */
+  vec2 qq=p*2.35;
+  qq.y -= t*0.0062;
+  float w1=fbm(qq+vec2(0.0,t*0.004)), w2=fbm(qq+vec2(4.7,-t*0.003));
+  vec2 warp=(vec2(w1,w2)-0.5)*0.9;
+  float f=fbm(qq+warp*1.7); f=fbm(qq+warp*1.15+vec2(f*0.8));
+  f += exp(-distance(p,uSouris)*3.6)*0.16;
+
+  float colonne=1.0-smoothstep(0.10,0.44,abs(uv.x-0.70));
+  float sol=smoothstep(-0.05,0.16,uv.y);
+  float ciel=1.0-smoothstep(0.52,0.98,uv.y);
+  float masque=colonne*sol*mix(ciel,1.0,0.38);
+  float halo=(1.0-smoothstep(0.0,0.66,abs(uv.x-0.70)))*0.08*sol;
+  float i=(pow(max(f,0.0),2.5)*masque*2.4+halo*f)*0.92;
+
+  vec3 indigo=vec3(0.114,0.173,0.275), seve=vec3(0.373,0.620,0.494);
+  float h=clamp(uv.y*0.76+f*0.40-0.05,0.0,1.0);
+  vec3 col=mix(indigo,seve,smoothstep(0.02,0.52,h));
+  col=mix(col,seve,0.34);
+
+  float g=(hash(uv*uRes+t)-0.5)*0.028;
+  gl_FragColor=vec4(col+g,clamp(i,0.0,1.0));
+}`;
+
+const cv=q('#champ');
+let renderer,scene,camera,mat;
+const souris=new THREE.Vector2(0.70*(innerWidth/innerHeight),.55),cible=souris.clone();
+try{
+  renderer=new THREE.WebGLRenderer({canvas:cv,alpha:true,antialias:false,powerPreference:'low-power'});
+  renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));
+  renderer.setSize(innerWidth,innerHeight,false);
+  scene=new THREE.Scene(); camera=new THREE.OrthographicCamera(-1,1,1,-1,0,1);
+  mat=new THREE.ShaderMaterial({transparent:true,depthWrite:false,
+    vertexShader:'varying vec2 vUv; void main(){ vUv=uv; gl_Position=vec4(position.xy,0.,1.); }',
+    fragmentShader:frag,
+    uniforms:{uRes:{value:new THREE.Vector2(innerWidth,innerHeight)},uTime:{value:0},uSouris:{value:souris}}});
+  scene.add(new THREE.Mesh(new THREE.PlaneGeometry(2,2),mat));
+  cv.style.transition='opacity 5500ms cubic-bezier(.34,0,.16,1)';
+  requestAnimationFrame(()=>cv.style.opacity='0.40');
+}catch(e){cv.style.display='none';}
+
+addEventListener('resize',()=>{ if(!renderer)return; renderer.setSize(innerWidth,innerHeight,false); mat.uniforms.uRes.value.set(innerWidth,innerHeight); });
+let visible=true,horloge=0,dernier=performance.now();
+document.addEventListener('visibilitychange',()=>{visible=!document.hidden; dernier=performance.now(); if(visible&&!SOBRE)requestAnimationFrame(boucle);});
+function boucle(now){
+  if(!renderer)return;
+  const dt=Math.min((now-dernier)/1000,.05); dernier=now; horloge+=dt;
+  souris.lerp(cible,Math.min(dt*1.6,1));
+  mat.uniforms.uTime.value=horloge; renderer.render(scene,camera);
+  if(visible)requestAnimationFrame(boucle);
+}
+if(renderer){ if(SOBRE){horloge=40; mat.uniforms.uTime.value=horloge; renderer.render(scene,camera);} else requestAnimationFrame(boucle); }
+addEventListener('pointermove',e=>{cible.set((e.clientX/innerWidth)*(innerWidth/innerHeight),1-e.clientY/innerHeight);},{passive:true});
+
+const jauge=q('#jauge'); let tick=false;
+function majJauge(){
+  const max=Math.max(document.documentElement.scrollHeight-innerHeight,1);
+  jauge.style.setProperty('--p',Math.min(scrollY/max,1).toFixed(4)); tick=false;
+}
+addEventListener('scroll',()=>{document.body.classList.toggle('parti',scrollY>60); if(!tick){tick=true; requestAnimationFrame(majJauge);}},{passive:true});
+majJauge();
+
+const ioRev=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vu'); ioRev.unobserve(e.target);}});},{threshold:.14,rootMargin:'0px 0px -8% 0px'});
+qa('.rev').forEach(el=>ioRev.observe(el));
+
+const anneau=q('#anneau');
+if(!SOBRE&&matchMedia('(hover:hover)').matches){
+  const xTo=gsap.quickTo(anneau,'x',{duration:.55,ease:'power3'}), yTo=gsap.quickTo(anneau,'y',{duration:.55,ease:'power3'});
+  addEventListener('pointermove',e=>{xTo(e.clientX); yTo(e.clientY); anneau.style.opacity=1;},{passive:true});
+  qa('a,button').forEach(el=>{
+    el.addEventListener('pointerenter',()=>{anneau.style.width='46px';anneau.style.height='46px';anneau.style.margin='-23px 0 0 -23px';});
+    el.addEventListener('pointerleave',()=>{anneau.style.width='26px';anneau.style.height='26px';anneau.style.margin='-13px 0 0 -13px';});
+  });
+}
+</script>
+</body>
+</html>

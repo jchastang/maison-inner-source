@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Politique de confidentialité — Maison Inner Source, Genève</title>
+<meta name="robots" content="index,follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..500;1,9..144,200..500&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --nuit:#0A100F; --lin:#E3DFD4; --brume:#8A938B;
+  --indigo:#1D2C46; --seve:#5F9E7E; --phosphene:#D3CE86;
+  --souffle:5500ms; --demi:2750ms; --quart:1375ms; --huitieme:687ms; --seizieme:343ms;
+  --inspire:cubic-bezier(.34,0,.16,1); --expire:cubic-bezier(.16,1,.28,1);
+  --marge:clamp(20px,4.5vw,64px); --rail:clamp(28px,5vw,72px);
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --utile:"Instrument Sans",system-ui,-apple-system,sans-serif;
+  --piste:.2em; --piste-large:.34em;
+  --h1:clamp(32px,5.6vw,72px); --h1-graisse:250;
+  --filet-fin:1px solid rgba(227,223,212,.08);
+}
+html[lang="ru"]{
+  --display:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --utile:"IBM Plex Sans",system-ui,-apple-system,sans-serif;
+  --piste:.14em; --piste-large:.22em;
+  --h1:clamp(28px,5vw,62px); --h1-graisse:300;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{background:var(--nuit);color:var(--lin);font-family:var(--utile);font-size:15px;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::selection{background:rgba(211,206,134,.22);color:var(--lin)}
+.caps{font-size:10px;letter-spacing:var(--piste-large);text-transform:uppercase;color:var(--brume)}
+.caps-sm{font-size:11px;letter-spacing:var(--piste);text-transform:uppercase}
+
+#champ{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0}
+.grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.42;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.42'/%3E%3C/svg%3E")}
+
+.entete{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:clamp(18px,2.6vw,30px) var(--marge) clamp(22px,3vw,34px)}
+.entete::before{content:"";position:absolute;inset:0;pointer-events:none;background:rgba(10,16,15,.66);-webkit-backdrop-filter:blur(12px) saturate(1.05);backdrop-filter:blur(12px) saturate(1.05);-webkit-mask-image:linear-gradient(180deg,#000 62%,transparent);mask-image:linear-gradient(180deg,#000 62%,transparent);opacity:0;transition:opacity var(--huitieme) var(--expire)}
+body.parti .entete::before{opacity:1}
+.entete>*{position:relative}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.entete::before{background:rgba(10,16,15,.93)}}
+.marque{font-family:var(--display);font-variation-settings:"SOFT" 100,"WONK" 1;font-weight:300;font-size:16px;text-decoration:none;color:var(--lin);white-space:nowrap}
+.marque em{font-style:italic;opacity:.72}
+.outils{display:flex;align-items:center;gap:clamp(14px,2.2vw,30px)}
+.langues{position:relative;display:flex;align-items:center;gap:2px;padding-bottom:5px}
+.langues button{background:none;border:0;cursor:pointer;font:inherit;color:var(--brume);font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:2px 6px;opacity:.55;transition:opacity var(--seizieme) var(--expire),color var(--seizieme) var(--expire)}
+.langues button:hover,.langues button[aria-current="true"]{opacity:1;color:var(--lin)}
+.langues .sep{color:var(--brume);opacity:.28;font-size:10px;pointer-events:none}
+#curseur-langue{position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--phosphene);transition:transform var(--huitieme) var(--expire),width var(--huitieme) var(--expire)}
+.retour{position:relative;color:var(--brume);text-decoration:none;padding-bottom:3px;transition:color var(--seizieme) var(--expire)}
+.retour::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:var(--phosphene);transform:scaleY(0) translateY(4px);transform-origin:bottom;opacity:0;transition:transform var(--seizieme) var(--expire),opacity var(--seizieme) var(--expire)}
+.retour:hover,.retour:focus-visible{color:var(--lin)}
+.retour:hover::after,.retour:focus-visible::after{transform:scaleY(1) translateY(0);opacity:1}
+
+.rail{position:fixed;left:0;top:0;bottom:0;width:var(--rail);z-index:30;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;pointer-events:none}
+.rail .vertical{writing-mode:vertical-rl;font-size:10px;letter-spacing:calc(var(--piste-large) - .04em);text-transform:uppercase;color:var(--brume);opacity:.45}
+.jauge{position:relative;width:1px;height:clamp(64px,13vh,116px);background:rgba(227,223,212,.14)}
+.jauge i{position:absolute;inset:0;background:var(--phosphene);opacity:.5;transform:scaleY(var(--p,0));transform-origin:top}
+@media(max-width:1080px){.rail{display:none}}
+
+main{position:relative;z-index:10}
+.tete{min-height:52svh;display:grid;grid-template-columns:var(--rail) minmax(0,1fr) var(--marge);align-content:end;padding-bottom:clamp(20px,4vh,44px)}
+.tete>*{grid-column:2}
+.corps{display:grid;grid-template-columns:var(--rail) minmax(0,1fr) var(--marge)}
+.corps>*{grid-column:2}
+@media(max-width:1080px){.tete,.corps{grid-template-columns:var(--marge) minmax(0,1fr) var(--marge)}}
+
+h1{font-family:var(--display);font-optical-sizing:auto;font-variation-settings:"SOFT" 100,"WONK" 1;font-weight:var(--h1-graisse);font-size:var(--h1);line-height:1.04;letter-spacing:-.02em;color:var(--lin)}
+html[lang="ru"] h1{font-variation-settings:normal}
+.maj{margin-top:20px;color:var(--brume);font-size:12px;letter-spacing:var(--piste);text-transform:uppercase;opacity:.75}
+
+.articles{margin-top:clamp(50px,10vh,110px);border-top:var(--filet-fin)}
+.art{display:grid;grid-template-columns:clamp(44px,6vw,86px) minmax(0,1fr);gap:clamp(14px,2.6vw,40px);align-items:start;padding:clamp(26px,4.4vh,46px) 0;border-bottom:var(--filet-fin)}
+@media(max-width:820px){.art{grid-template-columns:minmax(0,1fr);row-gap:12px}}
+.num{font-size:11px;letter-spacing:var(--piste);color:var(--brume);opacity:.6;padding-top:5px}
+.art h2{font-family:var(--display);font-optical-sizing:auto;font-variation-settings:"SOFT" 100,"WONK" 1;font-weight:300;font-size:clamp(19px,2vw,27px);line-height:1.2;letter-spacing:-.012em;color:var(--lin);margin-bottom:14px}
+html[lang="ru"] .art h2{font-variation-settings:normal}
+.art p{color:var(--brume);font-size:14.5px;line-height:1.75;max-width:66ch}
+.art p + p{margin-top:12px}
+.art b{font-weight:400;color:var(--lin)}
+.art ul{list-style:none;margin-top:14px;max-width:66ch}
+.art li{position:relative;padding:8px 0 8px 18px;color:var(--brume);font-size:14.5px;line-height:1.7}
+.art li::before{content:"";position:absolute;left:0;top:17px;width:8px;height:1px;background:var(--brume);opacity:.6}
+.remplacer{color:var(--phosphene);opacity:.8}
+.art a{color:var(--brume);text-decoration:none;border-bottom:1px solid rgba(227,223,212,.22);transition:color var(--seizieme) var(--expire),border-color var(--seizieme) var(--expire)}
+.art a:hover{color:var(--lin);border-color:var(--phosphene)}
+
+.pied-site{display:grid;grid-template-columns:var(--rail) minmax(0,1fr) var(--marge);margin-top:clamp(60px,11vh,130px);padding-bottom:clamp(40px,8vh,80px)}
+.pied-site>div{grid-column:2;display:flex;flex-wrap:wrap;align-items:center;gap:clamp(12px,2vw,26px);padding-top:clamp(20px,3vh,30px);border-top:var(--filet-fin);font-size:10px;letter-spacing:var(--piste);text-transform:uppercase;color:var(--brume);opacity:.5}
+.pied-site a{color:inherit;text-decoration:none;transition:opacity var(--seizieme) var(--expire),color var(--seizieme) var(--expire)}
+.pied-site a:hover{color:var(--lin)}
+.pied-site .sep{opacity:.4}
+@media(max-width:1080px){.pied-site{grid-template-columns:var(--marge) minmax(0,1fr) var(--marge)}}
+
+:focus-visible{outline:1px solid var(--phosphene);outline-offset:5px;border-radius:2px}
+.permutable{transition:opacity var(--seizieme) var(--expire),transform var(--seizieme) var(--expire)}
+body.change .permutable{opacity:0;transform:translateY(-8px)}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition-duration:1ms!important}}
+</style>
+</head>
+<body>
+
+<canvas id="champ" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="entete">
+  <a class="marque" href="/">Maison <em>Inner Source</em></a>
+  <div class="outils">
+    <a class="retour caps-sm permutable" href="/" data-i18n="ui.retour"></a>
+    <div class="langues" role="group" data-i18n-aria="a11y.lang">
+      <button type="button" data-lang="fr" aria-current="true">FR</button><span class="sep">·</span><button type="button" data-lang="en">EN</button><span class="sep">·</span><button type="button" data-lang="ru">RU</button>
+      <span id="curseur-langue" aria-hidden="true"></span>
+    </div>
+  </div>
+</header>
+
+<div class="rail" aria-hidden="true">
+  <span class="vertical permutable" data-i18n="ui.rail"></span>
+  <span class="jauge"><i id="jauge"></i></span>
+</div>
+
+<main>
+  <section class="tete">
+    <p class="caps permutable" data-i18n="p.surtitre" style="margin-bottom:18px"></p>
+    <h1 class="permutable" data-i18n="p.h1"></h1>
+    <p class="maj permutable" data-i18n="p.maj"></p>
+  </section>
+
+  <section class="corps">
+    <div class="articles">
+      <article class="art"><span class="num">01</span><div><h2 class="permutable" data-i18n="a1.t"></h2><div class="permutable" data-i18n-html="a1.c"></div></div></article>
+      <article class="art"><span class="num">02</span><div><h2 class="permutable" data-i18n="a2.t"></h2><div class="permutable" data-i18n-html="a2.c"></div></div></article>
+      <article class="art"><span class="num">03</span><div><h2 class="permutable" data-i18n="a3.t"></h2><div class="permutable" data-i18n-html="a3.c"></div></div></article>
+      <article class="art"><span class="num">04</span><div><h2 class="permutable" data-i18n="a4.t"></h2><div class="permutable" data-i18n-html="a4.c"></div></div></article>
+      <article class="art"><span class="num">05</span><div><h2 class="permutable" data-i18n="a5.t"></h2><div class="permutable" data-i18n-html="a5.c"></div></div></article>
+      <article class="art"><span class="num">06</span><div><h2 class="permutable" data-i18n="a6.t"></h2><div class="permutable" data-i18n-html="a6.c"></div></div></article>
+      <article class="art"><span class="num">07</span><div><h2 class="permutable" data-i18n="a7.t"></h2><div class="permutable" data-i18n-html="a7.c"></div></div></article>
+      <article class="art"><span class="num">08</span><div><h2 class="permutable" data-i18n="a8.t"></h2><div class="permutable" data-i18n-html="a8.c"></div></div></article>
+      <article class="art"><span class="num">09</span><div><h2 class="permutable" data-i18n="a9.t"></h2><div class="permutable" data-i18n-html="a9.c"></div></div></article>
+      <article class="art"><span class="num">10</span><div><h2 class="permutable" data-i18n="a10.t"></h2><div class="permutable" data-i18n-html="a10.c"></div></div></article>
+      <article class="art"><span class="num">11</span><div><h2 class="permutable" data-i18n="a11.t"></h2><div class="permutable" data-i18n-html="a11.c"></div></div></article>
+      <article class="art"><span class="num">12</span><div><h2 class="permutable" data-i18n="a12.t"></h2><div class="permutable" data-i18n-html="a12.c"></div></div></article>
+    </div>
+  </section>
+
+  <footer class="pied-site">
+    <div>
+      <span class="permutable" data-i18n="pied.droits"></span><span class="sep">·</span>
+      <a href="/mentions-legales/" class="permutable" data-i18n="pied.legal"></a><span class="sep">·</span>
+      <a href="/confidentialite/" class="permutable" data-i18n="pied.confid"></a>
+    </div>
+  </footer>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+const DICO={
+ fr:{
+  "html.title":"Politique de confidentialité — Maison Inner Source, Genève",
+  "a11y.lang":"Choix de la langue","ui.retour":"Retour au site","ui.rail":"Genève",
+  "p.surtitre":"Protection des données","p.h1":"Politique de confidentialité",
+  "p.maj":"Dernière mise à jour : <span class='remplacer'>[date]</span>",
+  "a1.t":"Notre principe",
+  "a1.c":"<p>Ce site ne dépose <b>aucun cookie</b>, n'utilise <b>aucun traceur publicitaire</b> et n'installe <b>aucun outil de mesure d'audience</b>. Nous ne savons pas combien de personnes visitent ce site, ni d'où elles viennent, ni ce qu'elles y lisent.</p><p>Ce choix a un coût commercial : nous nous privons de données que la plupart de nos confrères collectent. Nous l'assumons, parce qu'une maison de soin qui surveille ce que vous consultez ne mérite pas qu'on lui confie son corps.</p>",
+  "a2.t":"Responsable du traitement",
+  "a2.c":"<p><b>Maison Inner Source</b><br>Route de Florissant 70<br>1206 Genève, Suisse<br>Numéro IDE : CHE-432.150.232<br>Contact : <a href="mailto:jchastang@energies-massages.com">jchastang@energies-massages.com</a></p><p>La présente politique s'applique au traitement de données personnelles au sens de la <b>loi fédérale suisse sur la protection des données (nLPD)</b> et, pour les personnes résidant dans l'Union européenne, du <b>règlement général sur la protection des données (RGPD)</b>.</p>",
+  "a3.t":"Ce que nous ne collectons pas",
+  "a3.c":"<p>Nous voulons être explicites sur ce point, parce qu'il concerne des informations intimes.</p><p>Nos pages décrivent des contre-indications : épilepsie, antécédents psychiatriques, grossesse, traitements en cours, troubles circulatoires. <b>Le fait de consulter ces pages ne laisse aucune trace exploitable par nous.</b> Nous ne savons pas qui les lit, ni combien de temps, ni quelles lignes retiennent l'attention. Aucun profil n'est constitué, aucune inférence de santé n'est tirée de votre navigation.</p><p>Vous pouvez lire l'intégralité de nos précautions médicales sans que cela ne produise la moindre donnée nous concernant.</p>",
+  "a4.t":"Le formulaire de dates",
+  "a4.c":"<p>Le formulaire « Prévenez-moi des prochaines dates » collecte <b>votre adresse e-mail, et rien d'autre</b>. Ni nom, ni téléphone, ni centre d'intérêt.</p><p><b>Finalité :</b> vous informer de l'ouverture des prochaines séances. Aucun autre usage.<br><b>Base légale :</b> votre consentement, donné en soumettant le formulaire.<br><b>Conservation :</b> jusqu'à votre désinscription, ou au plus tard trois ans après le dernier envoi.<br><b>Désinscription :</b> un lien dans chaque message, ou une simple demande par e-mail.</p><p><b>Vos données ne sont ni vendues, ni louées, ni échangées, ni partagées à des fins commerciales.</b> Jamais, sous aucune forme.</p>",
+  "a5.t":"Les données de réservation",
+  "a5.c":"<p>Lors d'une réservation, nous recueillons les informations nécessaires à la tenue de la séance : identité, coordonnées, format choisi, et les éléments de santé que vous nous déclarez au regard des contre-indications publiées.</p><p>Ces derniers constituent des <b>données sensibles</b> au sens de l'art. 5 nLPD et de l'art. 9 RGPD. Ils font l'objet d'un traitement distinct : recueillis avec votre consentement explicite, conservés séparément des données de contact, accessibles aux seules personnes qui facilitent la séance, et supprimés au plus tard <span class='remplacer'>[durée à définir]</span> après votre dernière venue.</p><p>Ils ne servent qu'à une chose : décider si la séance peut avoir lieu, et dans quelles conditions.</p>",
+  "a6.t":"Les journaux techniques",
+  "a6.c":"<p>Notre hébergeur conserve automatiquement des journaux de connexion — adresse IP, date, page demandée, type de navigateur — pour assurer la sécurité et la disponibilité du site. Ces journaux sont générés par l'infrastructure, nous n'y accédons pas dans le cours normal de l'exploitation et ne les exploitons à aucune fin statistique ou commerciale.</p>",
+  "a7.t":"Destinataires et transferts",
+  "a7.c":"<p><b>Netlify, Inc.</b> (États-Unis) héberge le site. Ce transfert repose sur le cadre d'adéquation reconnu entre la Suisse, l'Union européenne et les États-Unis, sous réserve de la certification effective du prestataire.</p><p><b>Google Fonts</b> : les typographies du site sont actuellement chargées depuis les serveurs de Google, ce qui transmet votre adresse IP à Google LLC. <span class='remplacer'>[À supprimer une fois les polices auto-hébergées.]</span></p><p><span class='remplacer'>[Outil d'envoi d'e-mails à préciser dès son choix.]</span></p><p>Aucun autre destinataire. Aucune donnée n'est transmise à des annonceurs, des courtiers en données ou des réseaux sociaux.</p>",
+  "a8.t":"Vos droits",
+  "a8.c":"<p>Vous disposez à tout moment d'un droit d'<b>accès</b>, de <b>rectification</b>, d'<b>effacement</b>, de <b>limitation</b> et d'<b>opposition</b>, ainsi que d'un droit à la <b>portabilité</b> de vos données. Vous pouvez retirer votre consentement à tout moment, sans que cela n'affecte la licéité des traitements antérieurs.</p><p>Une simple demande à <a href="mailto:jchastang@energies-massages.com">jchastang@energies-massages.com</a> suffit. Nous répondons dans les trente jours, sans frais et sans vous demander de justifier votre demande.</p>",
+  "a9.t":"Sécurité",
+  "a9.c":"<p>Le site est servi exclusivement en HTTPS. L'accès aux données de réservation est restreint aux personnes qui facilitent les séances et protégé par authentification. Les données sensibles sont conservées séparément des données de contact.</p><p>Aucun système n'est infaillible. En cas de violation de données susceptible d'entraîner un risque élevé pour vos droits, nous vous en informerons ainsi que l'autorité compétente, dans les délais légaux.</p>",
+  "a10.t":"Enfants",
+  "a10.c":"<p>Nous n'accueillons pas de mineurs en séance et ne collectons pas sciemment de données concernant des personnes de moins de 16 ans. Si vous constatez qu'une telle donnée nous a été transmise, signalez-le-nous et nous la supprimerons.</p>",
+  "a11.t":"Réclamation",
+  "a11.c":"<p>En Suisse, vous pouvez saisir le <b>Préposé fédéral à la protection des données et à la transparence (PFPDT)</b>, Feldeggweg 1, 3003 Berne.</p><p>Si vous résidez dans l'Union européenne, vous pouvez saisir l'autorité de contrôle de votre pays de résidence.</p>",
+  "a12.t":"Modifications",
+  "a12.c":"<p>Cette politique peut évoluer, notamment lors de la mise en service du formulaire de dates ou du système de réservation. La date de dernière mise à jour figure en tête de page. Les modifications substantielles seront signalées aux personnes inscrites à nos communications.</p>",
+  "pied.droits":"© Maison Inner Source","pied.legal":"Mentions légales","pied.confid":"Confidentialité"
+ },
+ en:{
+  "html.title":"Privacy policy — Maison Inner Source, Geneva",
+  "a11y.lang":"Language","ui.retour":"Back to site","ui.rail":"Geneva",
+  "p.surtitre":"Data protection","p.h1":"Privacy policy",
+  "p.maj":"Last updated: <span class='remplacer'>[date]</span>",
+  "a1.t":"Our principle",
+  "a1.c":"<p>This site sets <b>no cookies</b>, uses <b>no advertising trackers</b> and installs <b>no audience measurement tool</b>. We do not know how many people visit this site, where they come from, or what they read here.</p><p>This choice has a commercial cost: we give up data most of our peers collect. We accept it, because a care practice that watches what you read does not deserve to be trusted with your body.</p>",
+  "a2.t":"Data controller",
+  "a2.c":"<p><b>Maison Inner Source</b><br>Route de Florissant 70<br>1206 Geneva, Switzerland<br>UID number: CHE-432.150.232<br>Contact: <a href="mailto:jchastang@energies-massages.com">jchastang@energies-massages.com</a></p><p>This policy applies to the processing of personal data within the meaning of the <b>Swiss Federal Act on Data Protection (nFADP)</b> and, for people resident in the European Union, the <b>General Data Protection Regulation (GDPR)</b>.</p>",
+  "a3.t":"What we do not collect",
+  "a3.c":"<p>We want to be explicit here, because it concerns intimate information.</p><p>Our pages describe contraindications: epilepsy, psychiatric history, pregnancy, ongoing treatment, circulatory conditions. <b>Reading those pages leaves no trace we can exploit.</b> We do not know who reads them, for how long, or which lines hold attention. No profile is built, and no health inference is drawn from your browsing.</p><p>You can read all our medical precautions without producing a single piece of data about yourself.</p>",
+  "a4.t":"The dates form",
+  "a4.c":"<p>The \"Tell me about the next dates\" form collects <b>your email address and nothing else</b>. No name, no phone number, no interests.</p><p><b>Purpose:</b> to inform you when the next sessions open. No other use.<br><b>Legal basis:</b> your consent, given by submitting the form.<br><b>Retention:</b> until you unsubscribe, or at most three years after the last message sent.<br><b>Unsubscribing:</b> a link in every message, or a simple email request.</p><p><b>Your data is never sold, rented, exchanged or shared for commercial purposes.</b> Never, in any form.</p>",
+  "a5.t":"Booking data",
+  "a5.c":"<p>When you book, we collect what is needed to hold the session: identity, contact details, chosen format, and the health information you declare in relation to the published contraindications.</p><p>The latter constitutes <b>sensitive data</b> under art. 5 nFADP and art. 9 GDPR. It is handled separately: collected with your explicit consent, stored apart from contact details, accessible only to those facilitating the session, and deleted at the latest <span class='remplacer'>[period to define]</span> after your last visit.</p><p>It serves one purpose only: deciding whether the session can take place, and under what conditions.</p>",
+  "a6.t":"Technical logs",
+  "a6.c":"<p>Our host automatically keeps connection logs — IP address, date, page requested, browser type — to ensure the security and availability of the site. These logs are generated by the infrastructure; we do not access them in normal operation and use them for no statistical or commercial purpose.</p>",
+  "a7.t":"Recipients and transfers",
+  "a7.c":"<p><b>Netlify, Inc.</b> (United States) hosts the site. This transfer relies on the adequacy framework recognised between Switzerland, the European Union and the United States, subject to the provider's effective certification.</p><p><b>Google Fonts</b>: the site's typefaces are currently loaded from Google servers, which transmits your IP address to Google LLC. <span class='remplacer'>[To be removed once the fonts are self-hosted.]</span></p><p><span class='remplacer'>[Mailing tool to be specified once chosen.]</span></p><p>No other recipients. No data is passed to advertisers, data brokers or social networks.</p>",
+  "a8.t":"Your rights",
+  "a8.c":"<p>You have at any time a right of <b>access</b>, <b>rectification</b>, <b>erasure</b>, <b>restriction</b> and <b>objection</b>, as well as a right to <b>data portability</b>. You may withdraw your consent at any time, without affecting the lawfulness of prior processing.</p><p>A simple request to <a href="mailto:jchastang@energies-massages.com">jchastang@energies-massages.com</a> is enough. We reply within thirty days, free of charge, without asking you to justify your request.</p>",
+  "a9.t":"Security",
+  "a9.c":"<p>The site is served exclusively over HTTPS. Access to booking data is restricted to those facilitating sessions and protected by authentication. Sensitive data is stored separately from contact details.</p><p>No system is infallible. In the event of a data breach likely to result in a high risk to your rights, we will inform you and the competent authority within the legal deadlines.</p>",
+  "a10.t":"Children",
+  "a10.c":"<p>We do not admit minors to sessions and do not knowingly collect data relating to people under 16. If you notice that such data has been sent to us, tell us and we will delete it.</p>",
+  "a11.t":"Complaints",
+  "a11.c":"<p>In Switzerland, you may contact the <b>Federal Data Protection and Information Commissioner (FDPIC)</b>, Feldeggweg 1, 3003 Bern.</p><p>If you reside in the European Union, you may contact the supervisory authority of your country of residence.</p>",
+  "a12.t":"Changes",
+  "a12.c":"<p>This policy may change, in particular when the dates form or the booking system goes live. The date of the last update appears at the top of this page. Substantial changes will be notified to people subscribed to our communications.</p>",
+  "pied.droits":"© Maison Inner Source","pied.legal":"Legal notice","pied.confid":"Privacy"
+ },
+ ru:{
+  "html.title":"Политика конфиденциальности — Maison Inner Source, Женева",
+  "a11y.lang":"Выбор языка","ui.retour":"Вернуться на сайт","ui.rail":"Женева",
+  "p.surtitre":"Защита данных","p.h1":"Политика конфиденциальности",
+  "p.maj":"Последнее обновление: <span class='remplacer'>[дата]</span>",
+  "a1.t":"Наш принцип",
+  "a1.c":"<p>Этот сайт не устанавливает <b>никаких cookie</b>, не использует <b>рекламных трекеров</b> и не подключает <b>инструментов веб-аналитики</b>. Мы не знаем, сколько человек заходит на сайт, откуда они и что читают.</p><p>У этого выбора есть коммерческая цена: мы отказываемся от данных, которые собирает большинство коллег. Мы принимаем её, потому что дом заботы, следящий за тем, что вы читаете, не заслуживает доверия к своему телу.</p>",
+  "a2.t":"Ответственный за обработку",
+  "a2.c":"<p><b>Maison Inner Source</b><br>Route de Florissant 70<br>1206 Женева, Швейцария<br>Номер IDE: CHE-432.150.232<br>Контакт: <a href="mailto:jchastang@energies-massages.com">jchastang@energies-massages.com</a></p><p>Настоящая политика применяется к обработке персональных данных в смысле <b>швейцарского закона о защите данных (nLPD)</b> и, для лиц, проживающих в Европейском союзе, <b>Общего регламента по защите данных (GDPR)</b>.</p>",
+  "a3.t":"Чего мы не собираем",
+  "a3.c":"<p>Здесь мы хотим быть предельно ясны, потому что речь идёт о личной информации.</p><p>На наших страницах описаны противопоказания: эпилепсия, психиатрический анамнез, беременность, текущее лечение, нарушения кровообращения. <b>Просмотр этих страниц не оставляет следа, который мы могли бы использовать.</b> Мы не знаем, кто их читает, как долго и какие строки задерживают внимание. Никакой профиль не формируется, никаких выводов о здоровье из вашего поведения не делается.</p><p>Вы можете полностью прочитать все наши предостережения, не создав при этом ни одной записи о себе.</p>",
+  "a4.t":"Форма подписки на даты",
+  "a4.c":"<p>Форма «Сообщите мне о ближайших датах» собирает <b>только адрес электронной почты</b>. Ни имени, ни телефона, ни интересов.</p><p><b>Цель:</b> сообщать об открытии записи на ближайшие сессии. Никакого иного использования.<br><b>Правовое основание:</b> ваше согласие, выраженное отправкой формы.<br><b>Срок хранения:</b> до отписки, но не более трёх лет после последнего письма.<br><b>Отписка:</b> ссылка в каждом письме или простой запрос по почте.</p><p><b>Ваши данные не продаются, не сдаются, не обмениваются и не передаются в коммерческих целях.</b> Никогда и ни в какой форме.</p>",
+  "a5.t":"Данные при записи",
+  "a5.c":"<p>При записи мы собираем сведения, необходимые для проведения сессии: личные и контактные данные, выбранный формат и информацию о здоровье, которую вы сообщаете в связи с опубликованными противопоказаниями.</p><p>Последняя относится к <b>чувствительным данным</b> по ст. 5 nLPD и ст. 9 GDPR. Она обрабатывается отдельно: собирается с вашего явного согласия, хранится отдельно от контактных данных, доступна только тем, кто проводит сессию, и удаляется не позднее чем через <span class='remplacer'>[срок уточнить]</span> после вашего последнего визита.</p><p>Она служит одной цели: решить, может ли сессия состояться и на каких условиях.</p>",
+  "a6.t":"Технические журналы",
+  "a6.c":"<p>Хостинг-провайдер автоматически хранит журналы соединений — IP-адрес, дату, запрошенную страницу, тип браузера — для обеспечения безопасности и доступности сайта. Эти журналы создаются инфраструктурой; в обычной работе мы к ним не обращаемся и не используем их ни в статистических, ни в коммерческих целях.</p>",
+  "a7.t":"Получатели и передача данных",
+  "a7.c":"<p><b>Netlify, Inc.</b> (США) размещает сайт. Передача основана на признанной рамке адекватности между Швейцарией, Европейским союзом и США, при условии действующей сертификации провайдера.</p><p><b>Google Fonts</b>: шрифты сайта сейчас загружаются с серверов Google, что передаёт ваш IP-адрес компании Google LLC. <span class='remplacer'>[Удалить после перехода на собственный хостинг шрифтов.]</span></p><p><span class='remplacer'>[Сервис рассылки будет указан после выбора.]</span></p><p>Иных получателей нет. Данные не передаются рекламодателям, брокерам данных и социальным сетям.</p>",
+  "a8.t":"Ваши права",
+  "a8.c":"<p>В любой момент вы имеете право на <b>доступ</b>, <b>исправление</b>, <b>удаление</b>, <b>ограничение</b> и <b>возражение</b>, а также на <b>переносимость</b> данных. Вы можете отозвать согласие в любое время, что не влияет на законность предшествующей обработки.</p><p>Достаточно письма на <a href="mailto:jchastang@energies-massages.com">jchastang@energies-massages.com</a>. Мы отвечаем в течение тридцати дней, бесплатно и без требования обосновать запрос.</p>",
+  "a9.t":"Безопасность",
+  "a9.c":"<p>Сайт работает исключительно по HTTPS. Доступ к данным записи ограничен теми, кто проводит сессии, и защищён аутентификацией. Чувствительные данные хранятся отдельно от контактных.</p><p>Ни одна система не безупречна. В случае утечки, способной создать высокий риск для ваших прав, мы уведомим вас и компетентный орган в установленные законом сроки.</p>",
+  "a10.t":"Дети",
+  "a10.c":"<p>Мы не принимаем несовершеннолетних на сессии и сознательно не собираем данные лиц младше 16 лет. Если вы заметили, что такие данные были нам переданы, сообщите — мы их удалим.</p>",
+  "a11.t":"Жалобы",
+  "a11.c":"<p>В Швейцарии вы можете обратиться к <b>Федеральному уполномоченному по защите данных и прозрачности (PFPDT)</b>, Feldeggweg 1, 3003 Берн.</p><p>Если вы проживаете в Европейском союзе, вы можете обратиться в надзорный орган страны проживания.</p>",
+  "a12.t":"Изменения",
+  "a12.c":"<p>Политика может меняться, в частности при запуске формы подписки или системы записи. Дата последнего обновления указана в начале страницы. О существенных изменениях мы сообщим подписчикам наших рассылок.</p>",
+  "pied.droits":"© Maison Inner Source","pied.legal":"Правовая информация","pied.confid":"Конфиденциальность"
+ }
+};
+
+const SOBRE=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const q=s=>document.querySelector(s), qa=s=>Array.from(document.querySelectorAll(s));
+let langue='fr',cyrilliqueCharge=false;
+function chargerCyrillique(){
+  if(cyrilliqueCharge)return; cyrilliqueCharge=true;
+  const l=document.createElement('link'); l.rel='stylesheet';
+  l.href='https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=IBM+Plex+Sans:wght@400;500&display=swap';
+  document.head.appendChild(l);
+}
+function peindre(l){
+  const d=DICO[l];
+  qa('[data-i18n]').forEach(el=>{const v=d[el.dataset.i18n]; if(v!==undefined) el.textContent=v;});
+  qa('[data-i18n-html]').forEach(el=>{const v=d[el.dataset.i18nHtml]; if(v!==undefined) el.innerHTML=v;});
+  qa('[data-i18n-aria]').forEach(el=>{const v=d[el.dataset.i18nAria]; if(v!==undefined) el.setAttribute('aria-label',v);});
+  document.title=d['html.title'];
+}
+function placerCurseur(){
+  const a=q('.langues button[aria-current="true"]'),c=q('#curseur-langue');
+  c.style.width=a.offsetWidth+'px'; c.style.transform=`translateX(${a.offsetLeft}px)`;
+}
+function definirLangue(l,animer=true){
+  if(l===langue&&animer)return;
+  if(l==='ru')chargerCyrillique();
+  langue=l; document.documentElement.lang=l;
+  qa('.langues button').forEach(b=>b.setAttribute('aria-current',String(b.dataset.lang===l)));
+  const url=new URL(location); url.searchParams.set('lang',l); history.replaceState({},'',url);
+  if(!animer||SOBRE){peindre(l); requestAnimationFrame(placerCurseur); return;}
+  document.body.classList.add('change');
+  setTimeout(()=>{peindre(l); document.fonts.ready.then(placerCurseur); requestAnimationFrame(()=>document.body.classList.remove('change'));},343);
+}
+qa('.langues button').forEach(b=>b.addEventListener('click',()=>definirLangue(b.dataset.lang)));
+const initiale=new URL(location).searchParams.get('lang');
+definirLangue(DICO[initiale]?initiale:'fr',false);
+addEventListener('resize',placerCurseur);
+document.fonts&&document.fonts.ready.then(placerCurseur);
+
+/* Champ adouci : 15 % d'opacité, aucune concurrence avec le texte */
+const frag=`
+precision highp float;
+varying vec2 vUv;
+uniform vec2 uRes; uniform float uTime;
+float hash(vec2 p){ return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453123); }
+float bruit(vec2 p){
+  vec2 i=floor(p),f=fract(p); vec2 u=f*f*(3.0-2.0*f);
+  return mix(mix(hash(i),hash(i+vec2(1.,0.)),u.x),mix(hash(i+vec2(0.,1.)),hash(i+vec2(1.,1.)),u.x),u.y);
+}
+float fbm(vec2 p){ float v=0.0,a=0.5; for(int i=0;i<4;i++){v+=a*bruit(p); p*=2.03; a*=0.5;} return v; }
+void main(){
+  vec2 uv=vUv; float ratio=uRes.x/uRes.y; vec2 p=vec2(uv.x*ratio,uv.y); float t=uTime;
+  vec2 qq=p*2.4; qq.y -= t*0.022;
+  float w1=fbm(qq), w2=fbm(qq+vec2(4.7,1.3));
+  float f=fbm(qq+(vec2(w1,w2)-0.5)*1.3);
+  float colonne=1.0-smoothstep(0.09,0.40,abs(uv.x-0.72));
+  float sol=smoothstep(-0.05,0.22,uv.y);
+  float ciel=1.0-smoothstep(0.50,0.96,uv.y);
+  float i=pow(max(f,0.0),2.4)*colonne*sol*mix(ciel,1.0,0.4)*2.3;
+  vec3 indigo=vec3(0.114,0.173,0.275), seve=vec3(0.373,0.620,0.494);
+  float h=clamp(uv.y*0.8+f*0.4-0.06,0.0,1.0);
+  vec3 col=mix(indigo,seve,smoothstep(0.10,0.68,h));
+  float g=(hash(uv*uRes+t)-0.5)*0.026;
+  gl_FragColor=vec4(col+g,clamp(i,0.0,1.0));
+}`;
+const cv=q('#champ');
+let renderer,scene,camera,mat,horloge=0,dernier=performance.now(),visible=true;
+try{
+  renderer=new THREE.WebGLRenderer({canvas:cv,alpha:true,antialias:false,powerPreference:'low-power'});
+  renderer.setPixelRatio(Math.min(devicePixelRatio,1.25));
+  renderer.setSize(innerWidth,innerHeight,false);
+  scene=new THREE.Scene(); camera=new THREE.OrthographicCamera(-1,1,1,-1,0,1);
+  mat=new THREE.ShaderMaterial({transparent:true,depthWrite:false,
+    vertexShader:'varying vec2 vUv; void main(){ vUv=uv; gl_Position=vec4(position.xy,0.,1.); }',
+    fragmentShader:frag,
+    uniforms:{uRes:{value:new THREE.Vector2(innerWidth,innerHeight)},uTime:{value:0}}});
+  scene.add(new THREE.Mesh(new THREE.PlaneGeometry(2,2),mat));
+  cv.style.transition='opacity 5500ms cubic-bezier(.34,0,.16,1)';
+  requestAnimationFrame(()=>cv.style.opacity='0.15');
+}catch(e){cv.style.display='none';}
+addEventListener('resize',()=>{ if(!renderer)return; renderer.setSize(innerWidth,innerHeight,false); mat.uniforms.uRes.value.set(innerWidth,innerHeight); });
+document.addEventListener('visibilitychange',()=>{visible=!document.hidden; dernier=performance.now(); if(visible&&!SOBRE)requestAnimationFrame(boucle);});
+function boucle(now){
+  if(!renderer)return;
+  const dt=Math.min((now-dernier)/1000,.05); dernier=now; horloge+=dt;
+  mat.uniforms.uTime.value=horloge; renderer.render(scene,camera);
+  if(visible)requestAnimationFrame(boucle);
+}
+if(renderer){ if(SOBRE){horloge=12; mat.uniforms.uTime.value=horloge; renderer.render(scene,camera);} else requestAnimationFrame(boucle); }
+
+const jauge=q('#jauge'); let tick=false;
+function majJauge(){
+  const max=Math.max(document.documentElement.scrollHeight-innerHeight,1);
+  jauge.style.setProperty('--p',Math.min(scrollY/max,1).toFixed(4)); tick=false;
+}
+addEventListener('scroll',()=>{document.body.classList.toggle('parti',scrollY>60); if(!tick){tick=true; requestAnimationFrame(majJauge);}},{passive:true});
+majJauge();
+</script>
+</body>
+</html>

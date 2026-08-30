@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pressothérapie à Genève — Maison Inner Source, Florissant</title>
+<meta name="description" content="Pressothérapie à Genève, route de Florissant 70. Compression séquentielle des jambes vers le buste, 30 ou 45 minutes. Déroulé, tarifs en CHF et contre-indications affichés.">
+<link rel="alternate" hreflang="fr" href="https://maison-inner-source.com/fr/pratiques/soins-du-corps/pressotherapie/">
+<link rel="alternate" hreflang="x-default" href="https://maison-inner-source.com/fr/pratiques/soins-du-corps/pressotherapie/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..500;1,9..144,200..500&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --nuit:#0A100F; --lin:#E3DFD4; --brume:#8A938B;
+  --indigo:#1D2C46; --seve:#5F9E7E; --phosphene:#D3CE86;
+  --souffle:5500ms; --demi:2750ms; --quart:1375ms; --huitieme:687ms; --seizieme:343ms;
+  --inspire:cubic-bezier(.34,0,.16,1); --expire:cubic-bezier(.16,1,.28,1);
+  --marge:clamp(20px,4.5vw,64px); --rail:clamp(28px,5vw,72px);
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --utile:"Instrument Sans",system-ui,-apple-system,sans-serif;
+  --piste:.2em; --piste-large:.34em;
+  --h1:clamp(36px,7vw,96px); --h1-graisse:250; --chapo-inter:1.75;
+  --filet:1px solid rgba(227,223,212,.11);
+  --filet-fin:1px solid rgba(227,223,212,.08);
+}
+html[lang="ru"]{
+  --display:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --utile:"IBM Plex Sans",system-ui,-apple-system,sans-serif;
+  --piste:.14em; --piste-large:.22em;
+  --h1:clamp(31px,6.2vw,84px); --h1-graisse:300; --chapo-inter:1.8;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{background:var(--nuit);color:var(--lin);font-family:var(--utile);font-size:15px;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::selection{background:rgba(211,206,134,.22);color:var(--lin)}
+.caps{font-size:10px;letter-spacing:var(--piste-large);text-transform:uppercase;color:var(--brume)}
+.caps-sm{font-size:11px;letter-spacing:var(--piste);text-transform:uppercase}
+
+#champ{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0}
+.grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.5;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.42'/%3E%3C/svg%3E")}
+
+.entete{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:clamp(18px,2.6vw,30px) var(--marge) clamp(22px,3vw,34px)}
+.entete::before{content:"";position:absolute;inset:0;pointer-events:none;background:rgba(10,16,15,.62);-webkit-backdrop-filter:blur(12px) saturate(1.05);backdrop-filter:blur(12px) saturate(1.05);-webkit-mask-image:linear-gradient(180deg,#000 62%,transparent);mask-image:linear-gradient(180deg,#000 62%,transparent);opacity:0;transition:opacity var(--huitieme) var(--expire)}
+body.parti .entete::before{opacity:1}
+.entete>*{position:relative}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.entete::before{background:rgba(10,16,15,.92)}}
+.marque{font-family:var(--display);font-variation-settings:"SOFT" 100,"WONK" 1;font-weight:300;font-size:16px;text-decoration:none;color:var(--lin);white-space:nowrap}
+.marque em{font-style:italic;opacity:.72}
+.outils{display:flex;align-items:center;gap:clamp(14px,2.2vw,30px)}
+.nav-liens{display:flex;gap:clamp(14px,2.2vw,30px)}
+@media(max-width:1080px){.nav-liens{display:none}}
+.lien{position:relative;color:var(--brume);text-decoration:none;padding-bottom:3px;transition:color var(--seizieme) var(--expire);white-space:nowrap}
+.lien::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:var(--phosphene);transform:scaleY(0) translateY(4px);transform-origin:bottom;opacity:0;transition:transform var(--seizieme) var(--expire),opacity var(--seizieme) var(--expire)}
+.lien:hover,.lien:focus-visible,.lien[aria-current]{color:var(--lin)}
+.lien:hover::after,.lien:focus-visible::after,.lien[aria-current]::after{transform:scaleY(1) translateY(0);opacity:1}
+.langues{position:relative;display:flex;align-items:center;gap:2px;padding-bottom:5px}
+.langues button{background:none;border:0;cursor:pointer;font:inherit;color:var(--brume);font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:2px 6px;opacity:.55;transition:opacity var(--seizieme) var(--expire),color var(--seizieme) var(--expire)}
+.langues button:hover,.langues button[aria-current="true"]{opacity:1;color:var(--lin)}
+.langues .sep{color:var(--brume);opacity:.28;font-size:10px;pointer-events:none}
+#curseur-langue{position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--phosphene);transition:transform var(--huitieme) var(--expire),width var(--huitieme) var(--expire)}
+.son{display:flex;align-items:center;gap:8px;background:none;border:0;cursor:pointer;padding:6px 0;color:var(--brume);font:inherit;transition:color var(--seizieme) var(--expire)}
+.son:hover{color:var(--lin)}
+.ondes{display:flex;align-items:flex-end;gap:2px;height:10px}
+.ondes i{display:block;width:1px;height:3px;background:currentColor;transition:height var(--seizieme) var(--expire)}
+.son[aria-pressed="true"]{color:var(--phosphene)}
+.son[aria-pressed="true"] .ondes i{animation:onde var(--souffle) var(--inspire) infinite}
+.son[aria-pressed="true"] .ondes i:nth-child(2){animation-delay:-1830ms}
+.son[aria-pressed="true"] .ondes i:nth-child(3){animation-delay:-3660ms}
+@keyframes onde{0%,100%{height:2px}50%{height:10px}}
+@media(max-width:700px){#son-label{display:none}}
+
+.rail{position:fixed;left:0;top:0;bottom:0;width:var(--rail);z-index:30;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;pointer-events:none}
+.rail .vertical{writing-mode:vertical-rl;font-size:10px;letter-spacing:calc(var(--piste-large) - .04em);text-transform:uppercase;color:var(--brume)}
+#chapitre{opacity:.75;transition:opacity var(--seizieme) var(--expire)}
+.rail.permute #chapitre{opacity:0}
+.jauge{position:relative;width:1px;height:clamp(64px,13vh,116px);background:rgba(227,223,212,.14)}
+.jauge i{position:absolute;inset:0;background:var(--phosphene);opacity:.55;transform:scaleY(var(--p,0));transform-origin:top;will-change:transform}
+.rail .ville{opacity:.4}
+@media(max-width:1080px){.rail{display:none}}
+
+main{position:relative;z-index:10}
+.sec{display:grid;grid-template-columns:var(--rail) minmax(0,1fr) var(--marge);padding-top:clamp(66px,13vh,140px)}
+.sec>*{grid-column:2}
+@media(max-width:1080px){.sec{grid-template-columns:var(--marge) minmax(0,1fr) var(--marge)}}
+.entete-seq{display:flex;align-items:baseline;gap:16px;margin-bottom:clamp(28px,5vh,54px)}
+.entete-seq .filet{flex:0 0 clamp(28px,5vw,64px);height:1px;background:var(--brume);opacity:.4;transform:translateY(-4px)}
+.rev{opacity:0;transform:translateY(20px);transition:opacity var(--demi) var(--inspire),transform var(--demi) var(--inspire)}
+.rev.vu{opacity:1;transform:none}
+
+/* Ouverture : texte à gauche, planche à droite */
+.ouverture{min-height:88svh;display:grid;grid-template-columns:var(--rail) minmax(0,1fr) minmax(0,.52fr) var(--marge);align-content:end;column-gap:clamp(24px,4vw,64px);padding-bottom:clamp(24px,5vh,60px)}
+.ouverture .texte{grid-column:2}
+.ouverture .planche{grid-column:3;align-self:end;padding-bottom:6px}
+@media(max-width:1080px){
+  .ouverture{grid-template-columns:var(--marge) minmax(0,1fr) var(--marge);row-gap:40px}
+  .ouverture .texte,.ouverture .planche{grid-column:2}
+  .ouverture .planche{max-width:300px}
+}
+.fil{margin-bottom:clamp(22px,4vh,40px);display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.fil a{color:var(--brume);text-decoration:none;transition:color var(--seizieme) var(--expire)}
+.fil a:hover{color:var(--lin)}
+.fil .sep{opacity:.4}
+.fil .ici{color:var(--lin);opacity:.85}
+h1{font-family:var(--display);font-optical-sizing:auto;font-variation-settings:"SOFT" 100,"WONK" 1;font-weight:var(--h1-graisse);font-size:var(--h1);line-height:1.02;letter-spacing:-.022em;color:var(--lin)}
+html[lang="ru"] h1{font-variation-settings:normal}
+.alias{display:flex;align-items:center;gap:12px;margin-top:12px;font-family:var(--display);font-style:italic;font-weight:300;font-size:clamp(15px,1.5vw,21px);line-height:1.3;color:var(--brume)}
+.alias::before{content:"";flex:0 0 clamp(18px,2.4vw,30px);height:1px;background:currentColor;opacity:.55}
+html[lang="ru"] .alias{font-variation-settings:normal}
+.promesse{max-width:46ch;color:var(--brume);font-size:clamp(14px,1.15vw,16px);line-height:var(--chapo-inter);margin-top:clamp(24px,4vh,40px)}
+.actions{display:flex;flex-wrap:wrap;align-items:center;gap:clamp(16px,2.4vw,32px);margin-top:clamp(26px,4.4vh,44px)}
+.cta{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:12px;padding:15px 30px;border:1px solid rgba(227,223,212,.28);border-radius:999px;color:var(--lin);text-decoration:none;isolation:isolate;transition:border-color var(--huitieme) var(--expire),color var(--huitieme) var(--expire)}
+.cta .fond{position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,var(--seve),var(--phosphene));transform:translateY(101%);transition:transform var(--huitieme) var(--expire)}
+.cta:hover,.cta:focus-visible{color:var(--nuit);border-color:transparent}
+.cta:hover .fond,.cta:focus-visible .fond{transform:translateY(0)}
+.cta .pastille{width:5px;height:5px;border-radius:50%;background:var(--phosphene);transition:background var(--huitieme) var(--expire)}
+.cta:hover .pastille{background:var(--nuit)}
+.duree-tete{font-size:11px;letter-spacing:var(--piste);text-transform:uppercase;color:var(--brume);opacity:.8}
+
+/* Planche d'instrument gravée */
+.planche svg{width:100%;height:auto;overflow:visible}
+.planche .trait{stroke:var(--brume);stroke-width:1;fill:none}
+.planche .chambre{fill:var(--seve);opacity:.06}
+.planche .etiq{fill:var(--brume);font-family:var(--utile);font-size:10px;letter-spacing:.14em;text-transform:uppercase}
+.planche .legende{margin-top:16px;color:var(--brume);font-size:12px;line-height:1.6;opacity:.75;max-width:34ch}
+@media(prefers-reduced-motion:no-preference){
+  .planche .chambre{animation:gonfle 4s var(--inspire) infinite}
+}
+@keyframes gonfle{0%,100%{opacity:.06}10%,24%{opacity:.55}40%{opacity:.06}}
+
+/* Déroulé minuté */
+.deroule{border-top:var(--filet-fin)}
+.etape{display:grid;grid-template-columns:clamp(76px,9vw,120px) minmax(0,1fr);gap:clamp(14px,2.6vw,36px);align-items:baseline;padding:clamp(16px,2.6vh,26px) 0;border-bottom:var(--filet-fin)}
+.etape .min{font-size:11px;letter-spacing:var(--piste);text-transform:uppercase;color:var(--brume);opacity:.8;white-space:nowrap}
+.etape p{color:var(--brume);font-size:clamp(14px,1.05vw,15px);line-height:1.7;max-width:56ch}
+.etape p b{font-weight:400;color:var(--lin)}
+
+.regle{max-width:52ch;font-family:var(--display);font-optical-sizing:auto;font-variation-settings:"SOFT" 100,"WONK" 1;font-weight:var(--h1-graisse);font-size:clamp(19px,2.4vw,31px);line-height:1.32;letter-spacing:-.01em}
+html[lang="ru"] .regle{font-variation-settings:normal;font-size:clamp(17px,2.1vw,28px)}
+.sous{margin-top:22px;max-width:52ch;color:var(--brume);font-size:clamp(14px,1.05vw,15px);line-height:var(--chapo-inter)}
+
+.tarifs{border-top:var(--filet-fin)}
+.tarif{display:grid;grid-template-columns:clamp(120px,15vw,190px) minmax(0,1fr) auto;gap:clamp(14px,2.4vw,32px);align-items:baseline;padding:clamp(18px,2.8vh,28px) 0;border-bottom:var(--filet-fin)}
+@media(max-width:820px){.tarif{grid-template-columns:minmax(0,1fr) auto;row-gap:6px}.tarif .desc{grid-column:1/-1}}
+.tarif .duree,.tarif .prix{font-family:var(--display);font-optical-sizing:auto;font-variation-settings:"SOFT" 100,"WONK" 1;font-weight:300;font-size:clamp(17px,1.7vw,23px);color:var(--lin)}
+html[lang="ru"] .tarif .duree,html[lang="ru"] .tarif .prix{font-variation-settings:normal}
+.tarif .prix{white-space:nowrap;text-align:right}
+.tarif .desc{color:var(--brume);font-size:clamp(13px,1vw,14.5px);line-height:1.6;max-width:44ch}
+.mention{margin-top:18px;color:var(--brume);font-size:13px;opacity:.8;max-width:60ch}
+
+.negatif{border-top:var(--filet-fin);max-width:64ch}
+.negatif li{list-style:none;padding:clamp(14px,2.2vh,22px) 0;border-bottom:var(--filet-fin);color:var(--brume);font-size:clamp(14px,1.05vw,15px);line-height:1.6}
+
+.precautions .intro,.precautions .fin{color:var(--brume);font-size:14px;line-height:1.7;max-width:60ch}
+.precautions .fin{margin-top:20px;opacity:.75}
+.precautions ul{list-style:none;margin:22px 0 0;columns:2;column-gap:clamp(28px,5vw,70px)}
+@media(max-width:820px){.precautions ul{columns:1}}
+.precautions li{break-inside:avoid;padding:10px 0 10px 18px;position:relative;color:var(--brume);font-size:14px;line-height:1.6}
+.precautions li::before{content:"";position:absolute;left:0;top:19px;width:8px;height:1px;background:var(--brume);opacity:.6}
+
+.faq{border-top:var(--filet-fin);max-width:72ch}
+.qr{padding:clamp(20px,3vh,30px) 0;border-bottom:var(--filet-fin)}
+.qr .q{font-family:var(--display);font-optical-sizing:auto;font-variation-settings:"SOFT" 100,"WONK" 1;font-weight:300;font-size:clamp(17px,1.7vw,22px);line-height:1.25;color:var(--lin)}
+html[lang="ru"] .qr .q{font-variation-settings:normal}
+.qr .r{margin-top:10px;color:var(--brume);font-size:14px;line-height:1.7;max-width:56ch}
+
+.acces{display:flex;flex-direction:column;gap:12px}
+.acces .ligne{color:var(--brume);font-size:14px;line-height:1.6}
+.acces .ligne b{font-weight:400;color:var(--lin)}
+.cloture{display:flex;flex-wrap:wrap;align-items:center;gap:clamp(18px,2.8vw,36px);padding:clamp(50px,9vh,100px) 0 clamp(70px,14vh,150px)}
+.cloture .note{color:var(--brume);font-size:clamp(13px,1vw,14.5px);line-height:1.6;max-width:36ch}
+
+.pied-site{display:grid;grid-template-columns:var(--rail) minmax(0,1fr) var(--marge);padding:0 0 clamp(40px,8vh,80px)}
+.pied-site>div{grid-column:2;display:flex;flex-wrap:wrap;align-items:center;gap:clamp(12px,2vw,26px);padding-top:clamp(20px,3vh,30px);border-top:1px solid rgba(227,223,212,.08);font-size:10px;letter-spacing:var(--piste);text-transform:uppercase;color:var(--brume);opacity:.5}
+.pied-site a{color:inherit;text-decoration:none;transition:color var(--seizieme) var(--expire)}
+.pied-site a:hover{color:var(--lin)}
+.pied-site .sep{opacity:.4}
+@media(max-width:1080px){.pied-site{grid-template-columns:var(--marge) minmax(0,1fr) var(--marge)}}
+#anneau{position:fixed;top:0;left:0;z-index:50;width:26px;height:26px;margin:-13px 0 0 -13px;border:1px solid rgba(211,206,134,.5);border-radius:50%;pointer-events:none;opacity:0;transition:opacity var(--huitieme) var(--expire),width var(--huitieme) var(--expire),height var(--huitieme) var(--expire),margin var(--huitieme) var(--expire)}
+@media(hover:none),(pointer:coarse){#anneau{display:none}}
+:focus-visible{outline:1px solid var(--phosphene);outline-offset:5px;border-radius:2px}
+.permutable{transition:opacity var(--seizieme) var(--expire),transform var(--seizieme) var(--expire)}
+body.change .permutable{opacity:0;transform:translateY(-8px)}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation:none!important;transition-duration:1ms!important}
+  #anneau{display:none}
+  .rev{opacity:1;transform:none}
+  .planche .chambre{opacity:.3}
+}
+</style>
+</head>
+<body>
+
+<canvas id="champ" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="entete">
+  <a class="marque" href="/">Maison <em>Inner Source</em></a>
+  <div class="outils">
+    <span class="nav-liens">
+      <a class="lien caps-sm" href="#" data-i18n="nav.innerdance"></a>
+      <a class="lien caps-sm" href="#" aria-current="page" data-i18n="nav.body"></a>
+      <a class="lien caps-sm" href="#" data-i18n="nav.agenda"></a>
+    </span>
+    <div class="langues" role="group" data-i18n-aria="a11y.lang">
+      <button type="button" data-lang="fr" aria-current="true">FR</button><span class="sep">·</span><button type="button" data-lang="en">EN</button><span class="sep">·</span><button type="button" data-lang="ru">RU</button>
+      <span id="curseur-langue" aria-hidden="true"></span>
+    </div>
+    <button class="son caps-sm" id="son" aria-pressed="false">
+      <span class="ondes" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span id="son-label" data-i18n="ui.sound"></span>
+    </button>
+  </div>
+</header>
+
+<div class="rail" id="rail" aria-hidden="true">
+  <span class="vertical" id="chapitre"></span>
+  <span class="jauge"><i id="jauge"></i></span>
+  <span class="vertical ville" data-i18n="ui.ville"></span>
+</div>
+
+<main>
+  <section class="ouverture" data-chapitre="ui.ch1">
+    <div class="texte">
+      <nav class="fil caps-sm rev" aria-label="fil d'ariane">
+        <a href="/" class="permutable" data-i18n="fil.accueil"></a><span class="sep">·</span>
+        <a href="#" class="permutable" data-i18n="fil.corps"></a><span class="sep">·</span>
+        <span class="ici permutable" data-i18n="fil.ici"></span>
+      </nav>
+      <p class="caps rev permutable" data-i18n="p.surtitre" style="margin-bottom:18px"></p>
+      <h1 class="rev permutable" data-i18n="p.h1"></h1>
+      <p class="alias rev permutable" data-i18n="p.alias"></p>
+      <p class="promesse rev permutable" data-i18n="p.promesse"></p>
+      <div class="actions rev">
+        <a class="cta caps-sm" href="#reserver"><span class="fond"></span><span class="pastille"></span><span class="permutable" data-i18n="p.cta"></span></a>
+        <span class="duree-tete permutable" data-i18n="p.meta"></span>
+      </div>
+    </div>
+
+    <figure class="planche rev">
+      <svg viewBox="0 0 260 400" role="img" aria-labelledby="planche-titre">
+        <title id="planche-titre">Schéma de la compression séquentielle</title>
+        <rect class="chambre" x="40" y="326" width="86" height="52" rx="14" style="animation-delay:0ms"/>
+        <rect class="chambre" x="40" y="262" width="86" height="52" rx="14" style="animation-delay:400ms"/>
+        <rect class="chambre" x="40" y="198" width="86" height="52" rx="14" style="animation-delay:800ms"/>
+        <rect class="chambre" x="40" y="134" width="86" height="52" rx="14" style="animation-delay:1200ms"/>
+        <rect class="chambre" x="40" y="70"  width="86" height="52" rx="14" style="animation-delay:1600ms"/>
+        <rect class="trait" x="40" y="326" width="86" height="52" rx="14"/>
+        <rect class="trait" x="40" y="262" width="86" height="52" rx="14"/>
+        <rect class="trait" x="40" y="198" width="86" height="52" rx="14"/>
+        <rect class="trait" x="40" y="134" width="86" height="52" rx="14"/>
+        <rect class="trait" x="40" y="70"  width="86" height="52" rx="14"/>
+        <path class="trait" d="M22 380 L22 46"/>
+        <path class="trait" d="M15 58 L22 44 L29 58"/>
+        <path class="trait" d="M126 352 L160 352"/><text class="etiq" x="168" y="356">1</text>
+        <path class="trait" d="M126 288 L160 288"/><text class="etiq" x="168" y="292">2</text>
+        <path class="trait" d="M126 224 L160 224"/><text class="etiq" x="168" y="228">3</text>
+        <path class="trait" d="M126 160 L160 160"/><text class="etiq" x="168" y="164">4</text>
+        <path class="trait" d="M126 96  L160 96"/><text class="etiq" x="168" y="100">5</text>
+      </svg>
+      <figcaption class="legende permutable" data-i18n="planche.legende"></figcaption>
+    </figure>
+  </section>
+
+  <section class="sec" data-chapitre="ui.ch1">
+    <div class="entete-seq rev"><span class="filet"></span><span class="caps permutable" data-i18n="s1.eyebrow"></span></div>
+    <p class="regle rev permutable" data-i18n="s1.texte"></p>
+    <p class="sous rev permutable" data-i18n="s1.sous"></p>
+  </section>
+
+  <section class="sec" data-chapitre="ui.ch2" data-zone="lecture">
+    <div class="entete-seq rev"><span class="filet"></span><span class="caps permutable" data-i18n="s2.eyebrow"></span></div>
+    <div class="deroule rev">
+      <div class="etape"><span class="min permutable" data-i18n="d1.min"></span><p class="permutable" data-i18n-html="d1.txt"></p></div>
+      <div class="etape"><span class="min permutable" data-i18n="d2.min"></span><p class="permutable" data-i18n-html="d2.txt"></p></div>
+      <div class="etape"><span class="min permutable" data-i18n="d3.min"></span><p class="permutable" data-i18n-html="d3.txt"></p></div>
+      <div class="etape"><span class="min permutable" data-i18n="d4.min"></span><p class="permutable" data-i18n-html="d4.txt"></p></div>
+    </div>
+  </section>
+
+  <section class="sec" data-chapitre="ui.ch3" data-zone="lecture">
+    <div class="entete-seq rev"><span class="filet"></span><span class="caps permutable" data-i18n="s3.eyebrow"></span></div>
+    <div class="tarifs rev">
+      <div class="tarif"><span class="duree permutable" data-i18n="t1.duree"></span><span class="desc permutable" data-i18n="t1.desc"></span><span class="prix permutable" data-i18n="t1.prix"></span></div>
+      <div class="tarif"><span class="duree permutable" data-i18n="t2.duree"></span><span class="desc permutable" data-i18n="t2.desc"></span><span class="prix permutable" data-i18n="t2.prix"></span></div>
+      <p class="mention permutable" data-i18n="s3.mention"></p>
+    </div>
+  </section>
+
+  <section class="sec" data-chapitre="ui.ch3" data-zone="lecture">
+    <div class="entete-seq rev"><span class="filet"></span><span class="caps permutable" data-i18n="s4.eyebrow"></span></div>
+    <ul class="negatif rev">
+      <li class="permutable" data-i18n="n1"></li>
+      <li class="permutable" data-i18n="n2"></li>
+      <li class="permutable" data-i18n="n3"></li>
+      <li class="permutable" data-i18n="n4"></li>
+    </ul>
+  </section>
+
+  <section class="sec precautions" data-chapitre="ui.ch4" data-zone="lecture">
+    <div class="entete-seq rev"><span class="filet"></span><span class="caps permutable" data-i18n="s5.eyebrow"></span></div>
+    <div class="rev">
+      <p class="intro permutable" data-i18n="prec.intro"></p>
+      <ul>
+        <li class="permutable" data-i18n="prec.l1"></li>
+        <li class="permutable" data-i18n="prec.l2"></li>
+        <li class="permutable" data-i18n="prec.l3"></li>
+        <li class="permutable" data-i18n="prec.l4"></li>
+        <li class="permutable" data-i18n="prec.l5"></li>
+        <li class="permutable" data-i18n="prec.l6"></li>
+        <li class="permutable" data-i18n="prec.l7"></li>
+        <li class="permutable" data-i18n="prec.l8"></li>
+      </ul>
+      <p class="fin permutable" data-i18n="prec.fin"></p>
+    </div>
+  </section>
+
+  <section class="sec" data-chapitre="ui.ch4" data-zone="lecture">
+    <div class="entete-seq rev"><span class="filet"></span><span class="caps permutable" data-i18n="s6.eyebrow"></span></div>
+    <div class="faq rev">
+      <div class="qr"><p class="q permutable" data-i18n="q1"></p><p class="r permutable" data-i18n="r1"></p></div>
+      <div class="qr"><p class="q permutable" data-i18n="q2"></p><p class="r permutable" data-i18n="r2"></p></div>
+      <div class="qr"><p class="q permutable" data-i18n="q3"></p><p class="r permutable" data-i18n="r3"></p></div>
+      <div class="qr"><p class="q permutable" data-i18n="q4"></p><p class="r permutable" data-i18n="r4"></p></div>
+      <div class="qr"><p class="q permutable" data-i18n="q5"></p><p class="r permutable" data-i18n="r5"></p></div>
+    </div>
+  </section>
+
+  <section class="sec" id="reserver" data-chapitre="ui.ch5">
+    <div class="entete-seq rev"><span class="filet"></span><span class="caps permutable" data-i18n="s7.eyebrow"></span></div>
+    <div class="acces rev">
+      <p class="ligne permutable" data-i18n-html="acces.adresse"></p>
+      <p class="ligne permutable" data-i18n-html="acces.tpg"></p>
+      <p class="ligne permutable" data-i18n-html="acces.parking"></p>
+    </div>
+    <div class="cloture rev">
+      <a class="cta caps-sm" href="#"><span class="fond"></span><span class="pastille"></span><span class="permutable" data-i18n="p.cta"></span></a>
+      <span class="note permutable" data-i18n="cloture.note"></span>
+    </div>
+  </section>
+  <footer class="pied-site">
+    <div>
+      <span class="permutable" data-i18n="pied.droits"></span><span class="sep">·</span>
+      <a href="/mentions-legales/" class="permutable" data-i18n="pied.legal"></a><span class="sep">·</span>
+      <a href="/confidentialite/" class="permutable" data-i18n="pied.confid"></a>
+    </div>
+  </footer>
+</main>
+
+<div id="anneau" aria-hidden="true"></div>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@graph":[
+  {"@type":"HealthAndBeautyBusiness","@id":"https://maison-inner-source.com/#maison","name":"Maison Inner Source",
+   "description":"Maison de soin à Genève : innerdance, massages, pressothérapie et Endosphères Therapy.",
+   "url":"https://maison-inner-source.com/","priceRange":"CHF 50–220","currenciesAccepted":"CHF",
+   "address":{"@type":"PostalAddress","streetAddress":"Route de Florissant 70","addressLocality":"Genève","postalCode":"1206","addressRegion":"GE","addressCountry":"CH"},
+   "geo":{"@type":"GeoCoordinates","latitude":"46.1918","longitude":"6.1593"},
+   "areaServed":{"@type":"City","name":"Genève"},
+   "publicAccess":true},
+  {"@type":"Service","name":"Pressothérapie","serviceType":"Pressothérapie",
+   "provider":{"@id":"https://maison-inner-source.com/#maison"},
+   "areaServed":{"@type":"City","name":"Genève"},
+   "url":"https://maison-inner-source.com/fr/pratiques/soins-du-corps/pressotherapie/",
+   "offers":[
+     {"@type":"Offer","name":"Séance unique de 45 minutes","price":"50","priceCurrency":"CHF"},
+     {"@type":"Offer","name":"Cure de cinq séances de 45 minutes","price":"220","priceCurrency":"CHF"}]},
+  {"@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"La pressothérapie est-elle douloureuse ?","acceptedAnswer":{"@type":"Answer","text":"Non. La compression est ferme mais réglable, et l'intensité est ajustée avec vous dès les premières minutes."}},
+    {"@type":"Question","name":"Que porte-t-on pendant la séance ?","acceptedAnswer":{"@type":"Answer","text":"Une tenue légère et couvrante fournie par la Maison, portée sous les bottes de compression."}},
+    {"@type":"Question","name":"Combien de séances faut-il ?","acceptedAnswer":{"@type":"Answer","text":"Une séance suffit pour un effet ponctuel. Pour un ressenti durable, un rythme régulier sur plusieurs semaines est plus pertinent."}},
+    {"@type":"Question","name":"Peut-on combiner pressothérapie et massage le même jour ?","acceptedAnswer":{"@type":"Answer","text":"Oui, dans cet ordre : massage puis pressothérapie."}},
+    {"@type":"Question","name":"Pourquoi ce tarif est-il plus bas que celui des autres soins ?","acceptedAnswer":{"@type":"Answer","text":"La séance ne mobilise pas un praticien en continu et se conçoit comme un complément d'ancrage après un innerdance ou un massage thérapeutique, plutôt que comme un soin isolé."}}]}
+]}
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+const DICO={
+ fr:{
+  "html.title":"Pressothérapie à Genève — Maison Inner Source, Florissant",
+  "a11y.lang":"Choix de la langue",
+  "nav.innerdance":"Innerdance","nav.body":"Soins du corps","nav.agenda":"Agenda",
+  "ui.sound":"Son","ui.soundOn":"Son actif","pied.droits":"© Maison Inner Source","pied.legal":"Mentions légales","pied.confid":"Confidentialité","ui.ville":"Genève",
+  "ui.ch1":"Pressothérapie","ui.ch2":"Le déroulé","ui.ch3":"Tarifs","ui.ch4":"Précautions","ui.ch5":"Venir",
+  "fil.accueil":"Accueil","fil.corps":"Soins du corps","fil.ici":"Pressothérapie",
+  "p.surtitre":"L'ancrage","p.h1":"Pressothérapie",
+  "p.alias":"compression séquentielle, des jambes vers le buste",
+  "p.promesse":"Des bottes pneumatiques compriment les jambes par segments successifs, du pied vers la hanche, puis relâchent. Le cycle recommence pendant quarante-cinq minutes. Vous ne faites rien : c'est l'appareil qui travaille et vous qui vous allongez. Un soin d'ancrage profond, pensé en complément immédiat après un voyage vibratoire d'Innerdance ou un massage thérapeutique.",
+  "p.cta":"Prendre place","p.meta":"45 min · CHF 50",
+  "planche.legende":"Cinq chambres, gonflées l'une après l'autre du bas vers le haut, puis relâchées ensemble. Un cycle complet dure environ quatre secondes.",
+  "s1.eyebrow":"Ce que ça règle",
+  "s1.texte":"Des jambes lourdes le soir, une sensation de gonflement après un vol ou une journée debout, des tissus qui semblent congestionnés, des mollets durs au lendemain d'un effort.",
+  "s1.sous":"Nous décrivons une sensation, pas un résultat médical. La pressothérapie ne traite aucune pathologie et ne remplace aucune prise en charge. Si vos jambes gonflent de manière inhabituelle ou asymétrique, la bonne porte est celle de votre médecin, pas la nôtre.",
+  "s2.eyebrow":"Le déroulé",
+  "d1.min":"0 – 5 min","d1.txt":"<b>Vérification.</b> Nous reprenons ensemble la liste des contre-indications, à voix haute, à chaque séance. Ce n'est pas une formalité : l'état d'une personne change entre deux rendez-vous.",
+  "d2.min":"5 – 10 min","d2.txt":"<b>Installation.</b> Vous enfilez une tenue légère fournie par la Maison, puis les bottes. Nous réglons la pression avec vous sur les premiers cycles, et elle reste ajustable à tout moment.",
+  "d3.min":"10 – 40 min","d3.txt":"<b>Les cycles.</b> Compression du pied vers la hanche, chambre après chambre, puis relâchement complet. Vous êtes allongé, vous pouvez fermer les yeux, lire ou parler. La plupart des gens s'endorment.",
+  "d4.min":"40 – 45 min","d4.txt":"<b>Le retour.</b> Retrait des bottes, quelques minutes assis, un verre d'eau. Nous vous demandons de ne pas repartir en courant : la sensation de légèreté s'installe surtout dans le quart d'heure qui suit.",
+  "s3.eyebrow":"Tarifs",
+  "t1.duree":"Séance unique","t1.desc":"Quarante-cinq minutes. Jambes, hanches et abdomen.","t1.prix":"CHF 50",
+  "t2.duree":"Cure de cinq séances","t2.desc":"Cinq fois 45 minutes. Valable six mois.","t2.prix":"CHF 220",
+  "s3.mention":"Paiement sur place ou par virement. Annulation sans frais jusqu'à 24 heures avant la séance.",
+  "s4.eyebrow":"Ce que ce n'est pas",
+  "n1":"Ce n'est pas un traitement médical. Nous ne posons aucun diagnostic et ne prenons en charge aucune pathologie veineuse ou lymphatique.",
+  "n2":"Ce n'est pas un drainage lymphatique manuel. Le geste est mécanique, réglé et identique d'un cycle à l'autre.",
+  "n3":"Ce n'est pas un soin amincissant. Nous ne promettons aucune perte de centimètres, de poids ou de cellulite.",
+  "n4":"Ce n'est pas pris en charge par l'assurance, ni de base ni complémentaire. L'agrément ASCA de la Maison couvre le massage thérapeutique, pas les soins instrumentaux.",
+  "s5.eyebrow":"Précautions",
+  "prec.intro":"La pressothérapie a des contre-indications réelles, dont certaines sérieuses. Signalez votre situation au moment de la réservation. En cas de doute, nous refuserons la séance plutôt que de prendre un risque à votre place.",
+  "prec.l1":"Thrombose veineuse profonde, phlébite en cours ou récente, embolie pulmonaire.",
+  "prec.l2":"Insuffisance cardiaque décompensée, œdème d'origine cardiaque ou rénale.",
+  "prec.l3":"Hypertension artérielle non contrôlée.",
+  "prec.l4":"Infection en cours, fièvre, érysipèle, inflammation aiguë d'un membre.",
+  "prec.l5":"Cancer en cours de traitement : uniquement avec l'accord de votre oncologue.",
+  "prec.l6":"Grossesse : nous ne pratiquons pas la pressothérapie pendant la grossesse.",
+  "prec.l7":"Fracture récente, plaie ouverte, greffe cutanée, lésion étendue sur un membre.",
+  "prec.l8":"Neuropathie sévère ou perte de sensibilité d'un membre.",
+  "prec.fin":"Cette liste n'est pas exhaustive et ne remplace pas un avis médical. Une jambe qui gonfle, chauffe ou devient douloureuse d'un seul côté doit être montrée à un médecin sans attendre.",
+  "s6.eyebrow":"Questions fréquentes",
+  "q1":"Est-ce que c'est douloureux ?","r1":"Non. La compression est ferme, jamais serrée au point de faire mal. L'intensité se règle avec vous dès les premiers cycles et reste modifiable en cours de séance.",
+  "q2":"Que porte-t-on pendant la séance ?","r2":"Une tenue légère et couvrante fournie par la Maison, portée sous les bottes. Vous ne restez jamais en sous-vêtements.",
+  "q3":"Combien de séances faut-il ?","r3":"Une seule suffit pour un effet ponctuel, après un vol ou une longue journée debout. Pour une sensation durable, un rythme régulier sur quelques semaines est plus pertinent qu'une séance isolée.",
+  "q4":"Puis-je enchaîner avec un massage le même jour ?","r4":"Oui, dans cet ordre : massage d'abord, pressothérapie ensuite. L'inverse est nettement moins confortable.",
+  "q5":"Pourquoi ce tarif est-il plus bas que celui des autres soins ?","r5":"Parce que la séance ne mobilise pas un praticien en continu : l'appareil travaille, nous réglons et nous veillons. Nous l'avons conçue comme un complément d'ancrage, à ajouter juste après un voyage vibratoire d'Innerdance ou un massage thérapeutique, plutôt que comme un soin isolé. Le tarif reflète ce rôle, pas une moindre attention.",
+  "s7.eyebrow":"Venir",
+  "acces.adresse":"<b>Adresse</b> — Route de Florissant 70, 1206 Genève",
+  "acces.tpg":"<b>TPG</b> — arrêt Krieg, lignes 8 et 21, juste devant la Maison.",
+  "acces.parking":"<b>En voiture</b> — parking de Florissant, à moins de 2 minutes à pied.",
+  "cloture.note":"Première fois ? Écrivez-nous, nous choisirons ensemble par où commencer."
+ },
+ en:{
+  "html.title":"Pressotherapy in Geneva — Maison Inner Source, Florissant",
+  "a11y.lang":"Language",
+  "nav.innerdance":"Innerdance","nav.body":"Body treatments","nav.agenda":"Schedule",
+  "ui.sound":"Sound","ui.soundOn":"Sound on","pied.droits":"© Maison Inner Source","pied.legal":"Legal notice","pied.confid":"Privacy","ui.ville":"Geneva",
+  "ui.ch1":"Pressotherapy","ui.ch2":"The session","ui.ch3":"Prices","ui.ch4":"Precautions","ui.ch5":"Getting here",
+  "fil.accueil":"Home","fil.corps":"Body treatments","fil.ici":"Pressotherapy",
+  "p.surtitre":"The anchoring","p.h1":"Pressotherapy",
+  "p.alias":"sequential compression, from the legs to the torso",
+  "p.promesse":"Pneumatic boots compress the legs in successive segments, from foot to hip, then release. The cycle starts again for forty-five minutes. You do nothing: the device works and you lie down. A deep grounding treatment, designed as an immediate complement after an Innerdance vibratory journey or a therapeutic massage.",
+  "p.cta":"Take your place","p.meta":"45 min · CHF 50",
+  "planche.legende":"Five chambers, inflated one after another from the bottom up, then released together. A full cycle lasts about four seconds.",
+  "s1.eyebrow":"What it addresses",
+  "s1.texte":"Heavy legs in the evening, a swollen feeling after a flight or a day spent standing, tissue that feels congested, hard calves the day after effort.",
+  "s1.sous":"We are describing a sensation, not a medical outcome. Pressotherapy treats no condition and replaces no medical care. If your legs swell in an unusual or one-sided way, the right door is your doctor's, not ours.",
+  "s2.eyebrow":"The session",
+  "d1.min":"0 – 5 min","d1.txt":"<b>Check.</b> We go through the list of contraindications together, out loud, at every session. This is not a formality: a person's condition changes between appointments.",
+  "d2.min":"5 – 10 min","d2.txt":"<b>Settling in.</b> You put on light clothing provided by the Maison, then the boots. We set the pressure with you over the first cycles, and it stays adjustable at any time.",
+  "d3.min":"10 – 40 min","d3.txt":"<b>The cycles.</b> Compression from foot to hip, chamber after chamber, then a full release. You lie down; you can close your eyes, read or talk. Most people fall asleep.",
+  "d4.min":"40 – 45 min","d4.txt":"<b>Coming back.</b> Boots off, a few minutes sitting, a glass of water. We ask you not to rush off: the lightness settles mostly in the quarter of an hour that follows.",
+  "s3.eyebrow":"Prices",
+  "t1.duree":"Single session","t1.desc":"Forty-five minutes. Legs, hips and abdomen.","t1.prix":"CHF 50",
+  "t2.duree":"Course of five sessions","t2.desc":"Five times 45 minutes. Valid six months.","t2.prix":"CHF 220",
+  "s3.mention":"Payment on site or by transfer. Free cancellation up to 24 hours before the session.",
+  "s4.eyebrow":"What this is not",
+  "n1":"This is not a medical treatment. We make no diagnosis and treat no venous or lymphatic condition.",
+  "n2":"This is not manual lymphatic drainage. The action is mechanical, set, and identical from one cycle to the next.",
+  "n3":"This is not a slimming treatment. We promise no loss of centimetres, weight or cellulite.",
+  "n4":"This is not covered by insurance, basic or complementary. The Maison's ASCA accreditation covers therapeutic massage, not device-based treatments.",
+  "s5.eyebrow":"Precautions",
+  "prec.intro":"Pressotherapy has real contraindications, some of them serious. Tell us your situation when you book. If in doubt we will decline the session rather than take a risk on your behalf.",
+  "prec.l1":"Deep vein thrombosis, current or recent phlebitis, pulmonary embolism.",
+  "prec.l2":"Decompensated heart failure, oedema of cardiac or renal origin.",
+  "prec.l3":"Uncontrolled high blood pressure.",
+  "prec.l4":"Active infection, fever, erysipelas, acute inflammation of a limb.",
+  "prec.l5":"Cancer under treatment: only with your oncologist's agreement.",
+  "prec.l6":"Pregnancy: we do not perform pressotherapy during pregnancy.",
+  "prec.l7":"Recent fracture, open wound, skin graft, extensive lesion on a limb.",
+  "prec.l8":"Severe neuropathy or loss of sensation in a limb.",
+  "prec.fin":"This list is not exhaustive and does not replace medical advice. A leg that swells, feels hot or becomes painful on one side only should be seen by a doctor without delay.",
+  "s6.eyebrow":"Frequent questions",
+  "q1":"Does it hurt?","r1":"No. The compression is firm, never tight enough to hurt. Intensity is set with you over the first cycles and can be changed at any point.",
+  "q2":"What do I wear?","r2":"Light, covering clothing provided by the Maison, worn under the boots. You are never left in your underwear.",
+  "q3":"How many sessions do I need?","r3":"One is enough for a one-off effect, after a flight or a long day standing. For a lasting feeling, a regular rhythm over a few weeks makes more sense than a single session.",
+  "q4":"Can I have a massage the same day?","r4":"Yes, in this order: massage first, pressotherapy after. The other way round is markedly less comfortable.",
+  "q5":"Why is this cheaper than your other treatments?","r5":"Because the session does not occupy a practitioner continuously: the device works, we set it and we watch over you. We designed it as a grounding complement, to be added just after an Innerdance vibratory journey or a therapeutic massage, rather than as a treatment on its own. The price reflects that role, not lesser attention.",
+  "s7.eyebrow":"Getting here",
+  "acces.adresse":"<b>Address</b> — Route de Florissant 70, 1206 Geneva",
+  "acces.tpg":"<b>TPG</b> — Krieg stop, lines 8 and 21, directly in front of the Maison.",
+  "acces.parking":"<b>By car</b> — Florissant car park, under 2 minutes on foot.",
+  "cloture.note":"First time? Write to us and we'll choose where to start together."
+ },
+ ru:{
+  "html.title":"Прессотерапия в Женеве — Maison Inner Source, Флориссан",
+  "a11y.lang":"Выбор языка",
+  "nav.innerdance":"Иннердэнс","nav.body":"Уход за телом","nav.agenda":"Расписание",
+  "ui.sound":"Звук","ui.soundOn":"Звук включён","pied.droits":"© Maison Inner Source","pied.legal":"Правовая информация","pied.confid":"Конфиденциальность","ui.ville":"Женева",
+  "ui.ch1":"Прессотерапия","ui.ch2":"Ход сессии","ui.ch3":"Цены","ui.ch4":"Меры предосторожности","ui.ch5":"Как добраться",
+  "fil.accueil":"Главная","fil.corps":"Уход за телом","fil.ici":"Прессотерапия",
+  "p.surtitre":"Заземление","p.h1":"Прессотерапия",
+  "p.alias":"последовательная компрессия, от ног к корпусу",
+  "p.promesse":"Пневматические сапоги сжимают ноги сегмент за сегментом, от стопы к бедру, затем отпускают. Цикл повторяется сорок пять минут. Вы не делаете ничего: работает аппарат, а вы лежите. Глубокое заземляющее воздействие, задуманное как дополнение сразу после вибрационного путешествия иннердэнс или терапевтического массажа.",
+  "p.cta":"Записаться","p.meta":"45 мин · CHF 50",
+  "planche.legende":"Пять камер надуваются одна за другой снизу вверх, затем отпускаются одновременно. Полный цикл длится около четырёх секунд.",
+  "s1.eyebrow":"С чем это работает",
+  "s1.texte":"Тяжесть в ногах к вечеру, ощущение отёчности после перелёта или дня на ногах, ткани, которые кажутся застойными, жёсткие икры на следующий день после нагрузки.",
+  "s1.sous":"Мы описываем ощущение, а не медицинский результат. Прессотерапия не лечит заболеваний и не заменяет медицинской помощи. Если ноги отекают необычно или несимметрично, идти нужно к врачу, а не к нам.",
+  "s2.eyebrow":"Ход сессии",
+  "d1.min":"0 – 5 мин","d1.txt":"<b>Проверка.</b> Мы вслух проходим список противопоказаний перед каждой сессией. Это не формальность: состояние человека меняется между визитами.",
+  "d2.min":"5 – 10 мин","d2.txt":"<b>Подготовка.</b> Вы надеваете лёгкую одежду, которую предоставляет Maison, затем сапоги. Давление настраивается вместе с вами на первых циклах и остаётся регулируемым в любой момент.",
+  "d3.min":"10 – 40 мин","d3.txt":"<b>Циклы.</b> Сжатие от стопы к бедру, камера за камерой, затем полное расслабление. Вы лежите, можете закрыть глаза, читать или разговаривать. Большинство засыпает.",
+  "d4.min":"40 – 45 мин","d4.txt":"<b>Возвращение.</b> Снимаем сапоги, несколько минут сидя, стакан воды. Мы просим не убегать сразу: лёгкость приходит в основном в следующие пятнадцать минут.",
+  "s3.eyebrow":"Цены",
+  "t1.duree":"Разовая сессия","t1.desc":"Сорок пять минут. Ноги, бёдра и живот.","t1.prix":"CHF 50",
+  "t2.duree":"Курс из пяти сессий","t2.desc":"Пять раз по 45 минут. Действителен шесть месяцев.","t2.prix":"CHF 220",
+  "s3.mention":"Оплата на месте или переводом. Бесплатная отмена до 24 часов перед сессией.",
+  "s4.eyebrow":"Чем это не является",
+  "n1":"Это не медицинская процедура. Мы не ставим диагнозов и не лечим венозных или лимфатических заболеваний.",
+  "n2":"Это не ручной лимфодренаж. Воздействие механическое, заданное и одинаковое от цикла к циклу.",
+  "n3":"Это не процедура для похудения. Мы не обещаем ни сантиметров, ни килограммов, ни устранения целлюлита.",
+  "n4":"Это не покрывается страховкой — ни базовой, ни дополнительной. Аккредитация ASCA распространяется на терапевтический массаж, а не на аппаратные процедуры.",
+  "s5.eyebrow":"Меры предосторожности",
+  "prec.intro":"У прессотерапии есть реальные противопоказания, некоторые из них серьёзные. Сообщите о своём состоянии при записи. При сомнениях мы откажем в сессии, а не станем рисковать за вас.",
+  "prec.l1":"Тромбоз глубоких вен, текущий или недавний флебит, тромбоэмболия лёгочной артерии.",
+  "prec.l2":"Декомпенсированная сердечная недостаточность, отёки сердечного или почечного происхождения.",
+  "prec.l3":"Неконтролируемая артериальная гипертензия.",
+  "prec.l4":"Активная инфекция, температура, рожистое воспаление, острое воспаление конечности.",
+  "prec.l5":"Онкология в процессе лечения: только с согласия вашего онколога.",
+  "prec.l6":"Беременность: во время беременности мы прессотерапию не проводим.",
+  "prec.l7":"Недавний перелом, открытая рана, пересадка кожи, обширное повреждение конечности.",
+  "prec.l8":"Выраженная нейропатия или потеря чувствительности конечности.",
+  "prec.fin":"Этот список не исчерпывающий и не заменяет консультацию врача. Если одна нога отекает, горячая или болезненная, покажитесь врачу без промедления.",
+  "s6.eyebrow":"Частые вопросы",
+  "q1":"Это больно?","r1":"Нет. Компрессия плотная, но никогда не до боли. Интенсивность настраивается с вами на первых циклах и меняется в любой момент.",
+  "q2":"Что надевать?","r2":"Лёгкую закрытую одежду, которую предоставляет Maison, под сапоги. Вы никогда не остаётесь в нижнем белье.",
+  "q3":"Сколько нужно сессий?","r3":"Одной достаточно для разового эффекта — после перелёта или долгого дня на ногах. Для устойчивого ощущения регулярность в течение нескольких недель важнее одной сессии.",
+  "q4":"Можно ли в тот же день сделать массаж?","r4":"Да, в таком порядке: сначала массаж, затем прессотерапия. Наоборот заметно менее комфортно.",
+  "q5":"Почему это дешевле других процедур?","r5":"Потому что сессия не занимает специалиста непрерывно: работает аппарат, мы настраиваем и наблюдаем. Мы задумали её как заземляющее дополнение сразу после вибрационного путешествия иннердэнс или терапевтического массажа, а не как отдельную процедуру. Цена отражает эту роль, а не меньшее внимание.",
+  "s7.eyebrow":"Как добраться",
+  "acces.adresse":"<b>Адрес</b> — Route de Florissant 70, 1206 Женева",
+  "acces.tpg":"<b>TPG</b> — остановка Krieg, линии 8 и 21, прямо напротив Maison.",
+  "acces.parking":"<b>На машине</b> — парковка Florissant, менее 2 минут пешком.",
+  "cloture.note":"Впервые? Напишите нам — вместе решим, с чего начать."
+ }
+};
+
+const SOBRE=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const q=s=>document.querySelector(s), qa=s=>Array.from(document.querySelectorAll(s));
+
+let langue='fr',cyrilliqueCharge=false,chapitreActif='ui.ch1';
+function chargerCyrillique(){
+  if(cyrilliqueCharge)return; cyrilliqueCharge=true;
+  const l=document.createElement('link'); l.rel='stylesheet';
+  l.href='https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=IBM+Plex+Sans:wght@400;500&display=swap';
+  document.head.appendChild(l);
+}
+function peindre(l){
+  const d=DICO[l];
+  qa('[data-i18n]').forEach(el=>{const v=d[el.dataset.i18n]; if(v!==undefined) el.textContent=v;});
+  qa('[data-i18n-html]').forEach(el=>{const v=d[el.dataset.i18nHtml]; if(v!==undefined) el.innerHTML=v;});
+  qa('[data-i18n-aria]').forEach(el=>{const v=d[el.dataset.i18nAria]; if(v!==undefined) el.setAttribute('aria-label',v);});
+  q('#chapitre').textContent=d[chapitreActif];
+  document.title=d['html.title'];
+  q('#son-label').textContent=d[q('#son').getAttribute('aria-pressed')==='true'?'ui.soundOn':'ui.sound'];
+}
+function placerCurseur(){
+  const a=q('.langues button[aria-current="true"]'),c=q('#curseur-langue');
+  c.style.width=a.offsetWidth+'px'; c.style.transform=`translateX(${a.offsetLeft}px)`;
+}
+function definirLangue(l,animer=true){
+  if(l===langue&&animer)return;
+  if(l==='ru')chargerCyrillique();
+  langue=l; document.documentElement.lang=l;
+  qa('.langues button').forEach(b=>b.setAttribute('aria-current',String(b.dataset.lang===l)));
+  const url=new URL(location); url.searchParams.set('lang',l); history.replaceState({},'',url);
+  if(!animer||SOBRE){peindre(l); requestAnimationFrame(placerCurseur); return;}
+  document.body.classList.add('change');
+  setTimeout(()=>{peindre(l); document.fonts.ready.then(placerCurseur); requestAnimationFrame(()=>document.body.classList.remove('change'));},343);
+}
+qa('.langues button').forEach(b=>b.addEventListener('click',()=>definirLangue(b.dataset.lang)));
+const initiale=new URL(location).searchParams.get('lang');
+definirLangue(DICO[initiale]?initiale:'fr',false);
+addEventListener('resize',placerCurseur);
+document.fonts&&document.fonts.ready.then(placerCurseur);
+
+function definirChapitre(cle){
+  if(cle===chapitreActif)return;
+  chapitreActif=cle;
+  const rail=q('#rail');
+  if(SOBRE){q('#chapitre').textContent=DICO[langue][cle]; return;}
+  rail.classList.add('permute');
+  setTimeout(()=>{q('#chapitre').textContent=DICO[langue][cle]; rail.classList.remove('permute');},343);
+}
+const ioChapitre=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)definirChapitre(e.target.dataset.chapitre);});},{rootMargin:'-45% 0px -45% 0px'});
+qa('[data-chapitre]').forEach(el=>ioChapitre.observe(el));
+
+/* ---------- Le champ : configuration Pressothérapie ---------- */
+const frag=`
+precision highp float;
+varying vec2 vUv;
+uniform vec2 uRes; uniform float uTime; uniform float uFlux;
+uniform vec2 uSouris; uniform float uDensite; uniform float uAncrage; uniform float uPulse;
+float hash(vec2 p){ return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453123); }
+float bruit(vec2 p){
+  vec2 i=floor(p),f=fract(p); vec2 u=f*f*(3.0-2.0*f);
+  return mix(mix(hash(i),hash(i+vec2(1.,0.)),u.x),mix(hash(i+vec2(0.,1.)),hash(i+vec2(1.,1.)),u.x),u.y);
+}
+float fbm(vec2 p){ float v=0.0,a=0.5; for(int i=0;i<5;i++){v+=a*bruit(p); p*=2.03; a*=0.5;} return v; }
+void main(){
+  vec2 uv=vUv; float ratio=uRes.x/uRes.y; vec2 p=vec2(uv.x*ratio,uv.y); float t=uTime;
+  vec2 qq=p*mix(2.15,2.55,uAncrage);
+  qq.y -= t*(0.038+uFlux*0.5)*(1.0-uAncrage*0.55);
+  float w1=fbm(qq+vec2(0.0,t*0.018)), w2=fbm(qq+vec2(4.7,-t*0.014));
+  vec2 warp=vec2(w1,w2)-0.5;
+  float f=fbm(qq+warp*1.9); f=fbm(qq+warp*1.3+vec2(f*0.85));
+  f += exp(-distance(p,uSouris)*3.4)*0.24;
+
+  float bInt=mix(0.055,0.095,uAncrage), bExt=mix(0.315,0.415,uAncrage);
+  float colonne=1.0-smoothstep(bInt,bExt,abs(uv.x-0.715));
+  float sol=smoothstep(-0.05,mix(0.30,0.12,uAncrage),uv.y);
+  float ciel=1.0-smoothstep(mix(0.62,0.40,uAncrage),mix(1.06,0.86,uAncrage),uv.y);
+  float masque=colonne*sol*mix(ciel,1.0,0.35);
+  float halo=(1.0-smoothstep(0.0,0.62,abs(uv.x-0.715)))*0.09*sol;
+  float i=(pow(max(f,0.0),2.35)*masque*2.55+halo*f)*uDensite;
+
+  /* uPulse : une vague de compression remonte la colonne toutes les 4 secondes */
+  float ph=fract(t/4.0);
+  float tete=ph*1.30-0.16;
+  float bande=exp(-pow((uv.y-tete)*5.6,2.0));
+  float enveloppe=smoothstep(0.0,0.16,ph)*(1.0-smoothstep(0.80,1.0,ph));
+  i += bande*enveloppe*uPulse*colonne*sol*(0.35+f*0.6);
+
+  vec3 indigo=vec3(0.114,0.173,0.275), seve=vec3(0.373,0.620,0.494), phos=vec3(0.827,0.808,0.525);
+  float h=clamp(uv.y*0.78+f*0.42-0.06,0.0,1.0);
+  vec3 col=mix(indigo,seve,smoothstep(0.06,0.60,h));
+  col=mix(col,phos,smoothstep(0.66,1.0,h)*0.78*(1.0-uAncrage*0.92));
+  col=mix(col,seve,uAncrage*0.50);
+  col=mix(col,phos,bande*enveloppe*uPulse*0.30);
+
+  float g=(hash(uv*uRes+t)-0.5)*0.030;
+  gl_FragColor=vec4(col+g,clamp(i,0.0,1.0));
+}`;
+
+const cv=q('#champ');
+let renderer,scene,camera,mat,brut=0,flux=0;
+const souris=new THREE.Vector2(0.715*(innerWidth/innerHeight),.55),cible=souris.clone();
+const etat={ancrage:0,densite:1.05,opacite:0,pulse:0};
+let modLecture=0;
+
+try{
+  renderer=new THREE.WebGLRenderer({canvas:cv,alpha:true,antialias:false,powerPreference:'low-power'});
+  renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));
+  renderer.setSize(innerWidth,innerHeight,false);
+  scene=new THREE.Scene();
+  camera=new THREE.OrthographicCamera(-1,1,1,-1,0,1);
+  mat=new THREE.ShaderMaterial({transparent:true,depthWrite:false,
+    vertexShader:'varying vec2 vUv; void main(){ vUv=uv; gl_Position=vec4(position.xy,0.,1.); }',
+    fragmentShader:frag,
+    uniforms:{uRes:{value:new THREE.Vector2(innerWidth,innerHeight)},uTime:{value:0},uFlux:{value:0},
+      uSouris:{value:souris},uDensite:{value:1.05},uAncrage:{value:0},uPulse:{value:0}}});
+  scene.add(new THREE.Mesh(new THREE.PlaneGeometry(2,2),mat));
+}catch(e){cv.style.display='none';}
+
+addEventListener('resize',()=>{
+  if(!renderer)return;
+  renderer.setSize(innerWidth,innerHeight,false);
+  mat.uniforms.uRes.value.set(innerWidth,innerHeight);
+});
+
+let visible=true,horloge=0,dernier=performance.now();
+document.addEventListener('visibilitychange',()=>{
+  visible=!document.hidden; dernier=performance.now();
+  if(visible&&!SOBRE)requestAnimationFrame(boucle);
+});
+function boucle(now){
+  if(!renderer)return;
+  const dt=Math.min((now-dernier)/1000,.05); dernier=now;
+  horloge+=dt;
+  brut*=Math.pow(0.0016,dt);
+  flux+=(brut-flux)*Math.min(dt*3.0,1);
+  souris.lerp(cible,Math.min(dt*2.5,1));
+  const u=mat.uniforms;
+  u.uTime.value=horloge; u.uFlux.value=flux;
+  u.uAncrage.value=etat.ancrage;
+  u.uDensite.value=Math.max(etat.densite+modLecture,0);
+  u.uPulse.value=etat.pulse;
+  cv.style.opacity=etat.opacite;
+  renderer.render(scene,camera);
+  if(visible)requestAnimationFrame(boucle);
+}
+if(renderer){
+  if(SOBRE){
+    etat.ancrage=0.75; etat.densite=1.0; etat.opacite=0.70; etat.pulse=0; horloge=14;
+    const u=mat.uniforms; u.uTime.value=horloge; u.uAncrage.value=etat.ancrage; u.uDensite.value=etat.densite;
+    cv.style.opacity=etat.opacite; renderer.render(scene,camera);
+  }else{
+    requestAnimationFrame(boucle);
+    gsap.to(etat,{ancrage:0.75,densite:1.0,opacite:0.70,duration:5.5,ease:'power2.inOut'});
+    gsap.to(etat,{pulse:0.42,duration:5.5,ease:'power1.in',delay:1.4});
+  }
+}
+
+addEventListener('wheel',e=>{brut=Math.min(brut+Math.abs(e.deltaY)*0.00028,.4);},{passive:true});
+addEventListener('pointermove',e=>{cible.set((e.clientX/innerWidth)*(innerWidth/innerHeight),1-e.clientY/innerHeight);},{passive:true});
+
+const ioLecture=new IntersectionObserver(es=>{
+  let m=0; es.forEach(e=>{m=Math.max(m,e.intersectionRatio);});
+  gsap.to({v:modLecture},{v:-0.24*m,duration:1.375,ease:'power2.out',onUpdate(){modLecture=this.targets()[0].v;}});
+},{threshold:[0,.25,.5,.75,1],rootMargin:'-30% 0px -30% 0px'});
+qa('[data-zone="lecture"]').forEach(el=>ioLecture.observe(el));
+
+const jauge=q('#jauge');
+let sy=scrollY,tickPrevu=false;
+function majJauge(){
+  const max=Math.max(document.documentElement.scrollHeight-innerHeight,1);
+  jauge.style.setProperty('--p',Math.min(scrollY/max,1).toFixed(4));
+  tickPrevu=false;
+}
+addEventListener('scroll',()=>{
+  brut=Math.min(brut+Math.abs(scrollY-sy)*0.0012,.4); sy=scrollY;
+  document.body.classList.toggle('parti',scrollY>60);
+  if(!tickPrevu){tickPrevu=true; requestAnimationFrame(majJauge);}
+},{passive:true});
+majJauge();
+
+const ioRev=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vu'); ioRev.unobserve(e.target);}});},{threshold:.14,rootMargin:'0px 0px -8% 0px'});
+qa('.rev').forEach(el=>ioRev.observe(el));
+
+const anneau=q('#anneau');
+if(!SOBRE&&matchMedia('(hover:hover)').matches){
+  const xTo=gsap.quickTo(anneau,'x',{duration:.55,ease:'power3'}), yTo=gsap.quickTo(anneau,'y',{duration:.55,ease:'power3'});
+  addEventListener('pointermove',e=>{xTo(e.clientX); yTo(e.clientY); anneau.style.opacity=1;},{passive:true});
+  qa('a,button').forEach(el=>{
+    el.addEventListener('pointerenter',()=>{anneau.style.width='46px';anneau.style.height='46px';anneau.style.margin='-23px 0 0 -23px';});
+    el.addEventListener('pointerleave',()=>{anneau.style.width='26px';anneau.style.height='26px';anneau.style.margin='-13px 0 0 -13px';});
+  });
+}
+
+let ctx,master;
+q('#son').addEventListener('click',e=>{
+  const b=e.currentTarget,actif=b.getAttribute('aria-pressed')==='true';
+  if(!ctx){
+    ctx=new (window.AudioContext||window.webkitAudioContext)();
+    master=ctx.createGain(); master.gain.value=0;
+    const filtre=ctx.createBiquadFilter(); filtre.type='lowpass'; filtre.frequency.value=440; filtre.Q.value=.6;
+    master.connect(filtre).connect(ctx.destination);
+    [73.42,110.00,146.83].forEach((f,i)=>{
+      const o=ctx.createOscillator(),g=ctx.createGain();
+      o.type=i===2?'triangle':'sine'; o.frequency.value=f*(1+(i-1)*0.0014);
+      g.gain.value=[.5,.26,.09][i]; o.connect(g).connect(master); o.start();
+    });
+    const lfo=ctx.createOscillator(),la=ctx.createGain();
+    lfo.frequency.value=1/4; la.gain.value=.028;
+    lfo.connect(la).connect(master.gain); lfo.start();
+  }
+  if(ctx.state==='suspended')ctx.resume();
+  master.gain.cancelScheduledValues(ctx.currentTime);
+  master.gain.setTargetAtTime(actif?0:.06,ctx.currentTime,1.4);
+  b.setAttribute('aria-pressed',String(!actif));
+  q('#son-label').textContent=DICO[langue][actif?'ui.sound':'ui.soundOn'];
+});
+</script>
+</body>
+</html>

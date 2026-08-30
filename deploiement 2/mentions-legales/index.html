@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mentions légales — Maison Inner Source, Genève</title>
+<meta name="robots" content="index,follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..500;1,9..144,200..500&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --nuit:#0A100F; --lin:#E3DFD4; --brume:#8A938B;
+  --indigo:#1D2C46; --seve:#5F9E7E; --phosphene:#D3CE86;
+  --souffle:5500ms; --demi:2750ms; --quart:1375ms; --huitieme:687ms; --seizieme:343ms;
+  --inspire:cubic-bezier(.34,0,.16,1); --expire:cubic-bezier(.16,1,.28,1);
+  --marge:clamp(20px,4.5vw,64px); --rail:clamp(28px,5vw,72px);
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --utile:"Instrument Sans",system-ui,-apple-system,sans-serif;
+  --piste:.2em; --piste-large:.34em;
+  --h1:clamp(32px,5.6vw,72px); --h1-graisse:250;
+  --filet-fin:1px solid rgba(227,223,212,.08);
+}
+html[lang="ru"]{
+  --display:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --utile:"IBM Plex Sans",system-ui,-apple-system,sans-serif;
+  --piste:.14em; --piste-large:.22em;
+  --h1:clamp(28px,5vw,62px); --h1-graisse:300;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{background:var(--nuit);color:var(--lin);font-family:var(--utile);font-size:15px;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::selection{background:rgba(211,206,134,.22);color:var(--lin)}
+.caps{font-size:10px;letter-spacing:var(--piste-large);text-transform:uppercase;color:var(--brume)}
+.caps-sm{font-size:11px;letter-spacing:var(--piste);text-transform:uppercase}
+
+#champ{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0}
+.grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.42;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.42'/%3E%3C/svg%3E")}
+
+.entete{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:clamp(18px,2.6vw,30px) var(--marge) clamp(22px,3vw,34px)}
+.entete::before{content:"";position:absolute;inset:0;pointer-events:none;background:rgba(10,16,15,.66);-webkit-backdrop-filter:blur(12px) saturate(1.05);backdrop-filter:blur(12px) saturate(1.05);-webkit-mask-image:linear-gradient(180deg,#000 62%,transparent);mask-image:linear-gradient(180deg,#000 62%,transparent);opacity:0;transition:opacity var(--huitieme) var(--expire)}
+body.parti .entete::before{opacity:1}
+.entete>*{position:relative}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.entete::before{background:rgba(10,16,15,.93)}}
+.marque{font-family:var(--display);font-variation-settings:"SOFT" 100,"WONK" 1;font-weight:300;font-size:16px;text-decoration:none;color:var(--lin);white-space:nowrap}
+.marque em{font-style:italic;opacity:.72}
+.outils{display:flex;align-items:center;gap:clamp(14px,2.2vw,30px)}
+.langues{position:relative;display:flex;align-items:center;gap:2px;padding-bottom:5px}
+.langues button{background:none;border:0;cursor:pointer;font:inherit;color:var(--brume);font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:2px 6px;opacity:.55;transition:opacity var(--seizieme) var(--expire),color var(--seizieme) var(--expire)}
+.langues button:hover,.langues button[aria-current="true"]{opacity:1;color:var(--lin)}
+.langues .sep{color:var(--brume);opacity:.28;font-size:10px;pointer-events:none}
+#curseur-langue{position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--phosphene);transition:transform var(--huitieme) var(--expire),width var(--huitieme) var(--expire)}
+.retour{position:relative;color:var(--brume);text-decoration:none;padding-bottom:3px;transition:color var(--seizieme) var(--expire)}
+.retour::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:var(--phosphene);transform:scaleY(0) translateY(4px);transform-origin:bottom;opacity:0;transition:transform var(--seizieme) var(--expire),opacity var(--seizieme) var(--expire)}
+.retour:hover,.retour:focus-visible{color:var(--lin)}
+.retour:hover::after,.retour:focus-visible::after{transform:scaleY(1) translateY(0);opacity:1}
+
+.rail{position:fixed;left:0;top:0;bottom:0;width:var(--rail);z-index:30;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;pointer-events:none}
+.rail .vertical{writing-mode:vertical-rl;font-size:10px;letter-spacing:calc(var(--piste-large) - .04em);text-transform:uppercase;color:var(--brume);opacity:.45}
+.jauge{position:relative;width:1px;height:clamp(64px,13vh,116px);background:rgba(227,223,212,.14)}
+.jauge i{position:absolute;inset:0;background:var(--phosphene);opacity:.5;transform:scaleY(var(--p,0));transform-origin:top}
+@media(max-width:1080px){.rail{display:none}}
+
+main{position:relative;z-index:10}
+.tete{min-height:52svh;display:grid;grid-template-columns:var(--rail) minmax(0,1fr) var(--marge);align-content:end;padding-bottom:clamp(20px,4vh,44px)}
+.tete>*{grid-column:2}
+.corps{display:grid;grid-template-columns:var(--rail) minmax(0,1fr) var(--marge)}
+.corps>*{grid-column:2}
+@media(max-width:1080px){.tete,.corps{grid-template-columns:var(--marge) minmax(0,1fr) var(--marge)}}
+
+h1{font-family:var(--display);font-optical-sizing:auto;font-variation-settings:"SOFT" 100,"WONK" 1;font-weight:var(--h1-graisse);font-size:var(--h1);line-height:1.04;letter-spacing:-.02em;color:var(--lin)}
+html[lang="ru"] h1{font-variation-settings:normal}
+.maj{margin-top:20px;color:var(--brume);font-size:12px;letter-spacing:var(--piste);text-transform:uppercase;opacity:.75}
+
+.articles{margin-top:clamp(50px,10vh,110px);border-top:var(--filet-fin)}
+.art{display:grid;grid-template-columns:clamp(44px,6vw,86px) minmax(0,1fr);gap:clamp(14px,2.6vw,40px);align-items:start;padding:clamp(26px,4.4vh,46px) 0;border-bottom:var(--filet-fin)}
+@media(max-width:820px){.art{grid-template-columns:minmax(0,1fr);row-gap:12px}}
+.num{font-size:11px;letter-spacing:var(--piste);color:var(--brume);opacity:.6;padding-top:5px}
+.art h2{font-family:var(--display);font-optical-sizing:auto;font-variation-settings:"SOFT" 100,"WONK" 1;font-weight:300;font-size:clamp(19px,2vw,27px);line-height:1.2;letter-spacing:-.012em;color:var(--lin);margin-bottom:14px}
+html[lang="ru"] .art h2{font-variation-settings:normal}
+.art p{color:var(--brume);font-size:14.5px;line-height:1.75;max-width:66ch}
+.art p + p{margin-top:12px}
+.art b{font-weight:400;color:var(--lin)}
+.art ul{list-style:none;margin-top:14px;max-width:66ch}
+.art li{position:relative;padding:8px 0 8px 18px;color:var(--brume);font-size:14.5px;line-height:1.7}
+.art li::before{content:"";position:absolute;left:0;top:17px;width:8px;height:1px;background:var(--brume);opacity:.6}
+.remplacer{color:var(--phosphene);opacity:.8}
+.art a{color:var(--brume);text-decoration:none;border-bottom:1px solid rgba(227,223,212,.22);transition:color var(--seizieme) var(--expire),border-color var(--seizieme) var(--expire)}
+.art a:hover{color:var(--lin);border-color:var(--phosphene)}
+
+.pied-site{display:grid;grid-template-columns:var(--rail) minmax(0,1fr) var(--marge);margin-top:clamp(60px,11vh,130px);padding-bottom:clamp(40px,8vh,80px)}
+.pied-site>div{grid-column:2;display:flex;flex-wrap:wrap;align-items:center;gap:clamp(12px,2vw,26px);padding-top:clamp(20px,3vh,30px);border-top:var(--filet-fin);font-size:10px;letter-spacing:var(--piste);text-transform:uppercase;color:var(--brume);opacity:.5}
+.pied-site a{color:inherit;text-decoration:none;transition:opacity var(--seizieme) var(--expire),color var(--seizieme) var(--expire)}
+.pied-site a:hover{color:var(--lin)}
+.pied-site .sep{opacity:.4}
+@media(max-width:1080px){.pied-site{grid-template-columns:var(--marge) minmax(0,1fr) var(--marge)}}
+
+:focus-visible{outline:1px solid var(--phosphene);outline-offset:5px;border-radius:2px}
+.permutable{transition:opacity var(--seizieme) var(--expire),transform var(--seizieme) var(--expire)}
+body.change .permutable{opacity:0;transform:translateY(-8px)}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition-duration:1ms!important}}
+</style>
+</head>
+<body>
+
+<canvas id="champ" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="entete">
+  <a class="marque" href="/">Maison <em>Inner Source</em></a>
+  <div class="outils">
+    <a class="retour caps-sm permutable" href="/" data-i18n="ui.retour"></a>
+    <div class="langues" role="group" data-i18n-aria="a11y.lang">
+      <button type="button" data-lang="fr" aria-current="true">FR</button><span class="sep">·</span><button type="button" data-lang="en">EN</button><span class="sep">·</span><button type="button" data-lang="ru">RU</button>
+      <span id="curseur-langue" aria-hidden="true"></span>
+    </div>
+  </div>
+</header>
+
+<div class="rail" aria-hidden="true">
+  <span class="vertical permutable" data-i18n="ui.rail"></span>
+  <span class="jauge"><i id="jauge"></i></span>
+</div>
+
+<main>
+  <section class="tete">
+    <p class="caps permutable" data-i18n="p.surtitre" style="margin-bottom:18px"></p>
+    <h1 class="permutable" data-i18n="p.h1"></h1>
+    <p class="maj permutable" data-i18n="p.maj"></p>
+  </section>
+
+  <section class="corps">
+    <div class="articles">
+      <article class="art"><span class="num">01</span><div><h2 class="permutable" data-i18n="a1.t"></h2><div class="permutable" data-i18n-html="a1.c"></div></div></article>
+      <article class="art"><span class="num">02</span><div><h2 class="permutable" data-i18n="a2.t"></h2><div class="permutable" data-i18n-html="a2.c"></div></div></article>
+      <article class="art"><span class="num">03</span><div><h2 class="permutable" data-i18n="a3.t"></h2><div class="permutable" data-i18n-html="a3.c"></div></div></article>
+      <article class="art"><span class="num">04</span><div><h2 class="permutable" data-i18n="a4.t"></h2><div class="permutable" data-i18n-html="a4.c"></div></div></article>
+      <article class="art"><span class="num">05</span><div><h2 class="permutable" data-i18n="a5.t"></h2><div class="permutable" data-i18n-html="a5.c"></div></div></article>
+      <article class="art"><span class="num">06</span><div><h2 class="permutable" data-i18n="a6.t"></h2><div class="permutable" data-i18n-html="a6.c"></div></div></article>
+      <article class="art"><span class="num">07</span><div><h2 class="permutable" data-i18n="a7.t"></h2><div class="permutable" data-i18n-html="a7.c"></div></div></article>
+    </div>
+  </section>
+
+  <footer class="pied-site">
+    <div>
+      <span class="permutable" data-i18n="pied.droits"></span><span class="sep">·</span>
+      <a href="/mentions-legales/" class="permutable" data-i18n="pied.legal"></a><span class="sep">·</span>
+      <a href="/confidentialite/" class="permutable" data-i18n="pied.confid"></a>
+    </div>
+  </footer>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+const DICO={
+ fr:{
+  "html.title":"Mentions légales — Maison Inner Source, Genève",
+  "a11y.lang":"Choix de la langue","ui.retour":"Retour au site","ui.rail":"Genève",
+  "p.surtitre":"Informations légales","p.h1":"Mentions légales",
+  "p.maj":"Dernière mise à jour : <span class='remplacer'>[date]</span>",
+  "a1.t":"Éditeur du site",
+  "a1.c":"<p><b>Maison Inner Source</b><br>Route de Florissant 70<br>1206 Genève, Suisse</p><p>Forme juridique : <span class='remplacer'>[à compléter]</span><br>Numéro IDE : CHE-432.150.232<br>Responsable de la publication : <span class='remplacer'>[nom complet]</span><br>Contact : <a href="mailto:jchastang@energies-massages.com">jchastang@energies-massages.com</a></p>",
+  "a2.t":"Hébergement",
+  "a2.c":"<p>Le site est hébergé par <b>Netlify, Inc.</b>, 512 2nd Street, Suite 200, San Francisco, CA 94107, États-Unis.</p><p>L'hébergeur conserve des journaux techniques de connexion pour assurer la sécurité et la disponibilité du service. Le détail de ces traitements figure dans notre politique de confidentialité.</p>",
+  "a3.t":"Propriété intellectuelle",
+  "a3.c":"<p>L'ensemble des contenus de ce site — textes, identité visuelle, typographies mises en œuvre, illustrations vectorielles, code source et photographies — est protégé par le droit d'auteur. Toute reproduction, adaptation ou diffusion, totale ou partielle, sans autorisation écrite préalable est interdite.</p><p>La photographie de Pi Villaraza figurant sur la page Innerdance est publiée <b>avec son accord</b>.</p>",
+  "a4.t":"Marques citées",
+  "a4.c":"<p>Endosphères Therapy est une marque déposée par son titulaire. La Maison Inner Source utilise cet appareil dans le cadre de son activité ; elle n'est ni le fabricant, ni le distributeur, ni un représentant de la marque.</p><p>Les autres marques et noms cités le sont à titre d'information et restent la propriété de leurs détenteurs respectifs.</p>",
+  "a5.t":"Nature des prestations",
+  "a5.c":"<p>Les prestations proposées relèvent du <b>bien-être et de l'accompagnement corporel</b>. Elles ne constituent pas des actes médicaux, ne posent aucun diagnostic et ne remplacent aucun traitement ni suivi thérapeutique en cours.</p><p>La Maison est agréée ASCA pour le massage thérapeutique. Cet agrément ne s'étend pas aux soins instrumentaux ni aux séances d'innerdance.</p>",
+  "a6.t":"Responsabilité",
+  "a6.c":"<p>Les informations publiées, y compris les listes de précautions et de contre-indications, sont fournies à titre indicatif. Elles ne sont pas exhaustives et ne remplacent pas un avis médical individualisé. Il appartient à chaque personne de signaler sa situation avant toute séance et, en cas de doute, de consulter un professionnel de santé.</p><p>La Maison Inner Source met tout en œuvre pour assurer l'exactitude des informations diffusées, sans pouvoir en garantir l'exhaustivité permanente. Elle décline toute responsabilité quant au contenu des sites tiers accessibles depuis des liens éventuels.</p>",
+  "a7.t":"Droit applicable et for",
+  "a7.c":"<p>Le présent site et les relations qui en découlent sont soumis au <b>droit suisse</b>. Le for exclusif est à <b>Genève</b>, sous réserve des dispositions impératives protégeant les consommateurs.</p>",
+  "pied.droits":"© Maison Inner Source","pied.legal":"Mentions légales","pied.confid":"Confidentialité"
+ },
+ en:{
+  "html.title":"Legal notice — Maison Inner Source, Geneva",
+  "a11y.lang":"Language","ui.retour":"Back to site","ui.rail":"Geneva",
+  "p.surtitre":"Legal information","p.h1":"Legal notice",
+  "p.maj":"Last updated: <span class='remplacer'>[date]</span>",
+  "a1.t":"Site publisher",
+  "a1.c":"<p><b>Maison Inner Source</b><br>Route de Florissant 70<br>1206 Geneva, Switzerland</p><p>Legal form: <span class='remplacer'>[to complete]</span><br>UID number: CHE-432.150.232<br>Responsible for publication: <span class='remplacer'>[full name]</span><br>Contact: <a href="mailto:jchastang@energies-massages.com">jchastang@energies-massages.com</a></p>",
+  "a2.t":"Hosting",
+  "a2.c":"<p>This site is hosted by <b>Netlify, Inc.</b>, 512 2nd Street, Suite 200, San Francisco, CA 94107, United States.</p><p>The host keeps technical connection logs to ensure the security and availability of the service. Details of this processing are set out in our privacy policy.</p>",
+  "a3.t":"Intellectual property",
+  "a3.c":"<p>All content on this site — text, visual identity, typographic implementation, vector illustrations, source code and photographs — is protected by copyright. Any reproduction, adaptation or distribution, in whole or in part, without prior written permission is prohibited.</p><p>The photograph of Pi Villaraza on the Innerdance page is published <b>with his consent</b>.</p>",
+  "a4.t":"Trademarks",
+  "a4.c":"<p>Endosphères Therapy is a registered trademark of its owner. Maison Inner Source uses this device in its practice; it is neither the manufacturer, nor the distributor, nor a representative of the brand.</p><p>Other names and trademarks are cited for information only and remain the property of their respective owners.</p>",
+  "a5.t":"Nature of the services",
+  "a5.c":"<p>The services offered fall within the field of <b>wellbeing and bodywork</b>. They are not medical acts, make no diagnosis, and replace no ongoing treatment or therapeutic care.</p><p>The Maison holds ASCA accreditation for therapeutic massage. This accreditation does not extend to device-based treatments or to innerdance sessions.</p>",
+  "a6.t":"Liability",
+  "a6.c":"<p>The information published, including the lists of precautions and contraindications, is provided for guidance. It is not exhaustive and does not replace individual medical advice. It is each person's responsibility to declare their situation before any session and, if in doubt, to consult a health professional.</p><p>Maison Inner Source makes every effort to ensure the accuracy of the information published, without being able to guarantee its permanent completeness. It accepts no liability for the content of third-party sites reachable through any links.</p>",
+  "a7.t":"Applicable law and jurisdiction",
+  "a7.c":"<p>This site and the relationships arising from it are governed by <b>Swiss law</b>. Exclusive jurisdiction lies in <b>Geneva</b>, subject to mandatory consumer protection provisions.</p>",
+  "pied.droits":"© Maison Inner Source","pied.legal":"Legal notice","pied.confid":"Privacy"
+ },
+ ru:{
+  "html.title":"Правовая информация — Maison Inner Source, Женева",
+  "a11y.lang":"Выбор языка","ui.retour":"Вернуться на сайт","ui.rail":"Женева",
+  "p.surtitre":"Правовая информация","p.h1":"Правовая информация",
+  "p.maj":"Последнее обновление: <span class='remplacer'>[дата]</span>",
+  "a1.t":"Издатель сайта",
+  "a1.c":"<p><b>Maison Inner Source</b><br>Route de Florissant 70<br>1206 Женева, Швейцария</p><p>Организационно-правовая форма: <span class='remplacer'>[уточнить]</span><br>Номер IDE: CHE-432.150.232<br>Ответственный за публикацию: <span class='remplacer'>[полное имя]</span><br>Контакт: <a href="mailto:jchastang@energies-massages.com">jchastang@energies-massages.com</a></p>",
+  "a2.t":"Хостинг",
+  "a2.c":"<p>Сайт размещён на <b>Netlify, Inc.</b>, 512 2nd Street, Suite 200, San Francisco, CA 94107, США.</p><p>Хостинг-провайдер хранит технические журналы соединений для обеспечения безопасности и доступности сервиса. Подробности изложены в нашей политике конфиденциальности.</p>",
+  "a3.t":"Интеллектуальная собственность",
+  "a3.c":"<p>Всё содержимое сайта — тексты, визуальная айдентика, типографика, векторные иллюстрации, исходный код и фотографии — защищено авторским правом. Любое воспроизведение, переработка или распространение полностью или частично без предварительного письменного разрешения запрещены.</p><p>Фотография Pi Villaraza на странице «Иннердэнс» опубликована <b>с его согласия</b>.</p>",
+  "a4.t":"Упомянутые торговые марки",
+  "a4.c":"<p>Endosphères Therapy — зарегистрированная торговая марка её владельца. Maison Inner Source использует этот аппарат в своей работе и не является ни производителем, ни дистрибьютором, ни представителем марки.</p><p>Прочие названия и марки упомянуты исключительно в информационных целях и остаются собственностью их владельцев.</p>",
+  "a5.t":"Характер услуг",
+  "a5.c":"<p>Предлагаемые услуги относятся к сфере <b>велнеса и работы с телом</b>. Они не являются медицинскими процедурами, не предполагают постановки диагноза и не заменяют текущего лечения или терапевтического сопровождения.</p><p>Maison аккредитован ASCA для терапевтического массажа. Аккредитация не распространяется на аппаратные процедуры и сессии иннердэнс.</p>",
+  "a6.t":"Ответственность",
+  "a6.c":"<p>Опубликованная информация, включая списки мер предосторожности и противопоказаний, носит справочный характер. Она не является исчерпывающей и не заменяет индивидуальной консультации врача. Каждый обязан сообщить о своём состоянии до сессии и при сомнениях обратиться к специалисту.</p><p>Maison Inner Source стремится обеспечивать точность публикуемых сведений, не гарантируя их постоянной полноты. Мы не несём ответственности за содержание сторонних сайтов, доступных по возможным ссылкам.</p>",
+  "a7.t":"Применимое право и подсудность",
+  "a7.c":"<p>Сайт и вытекающие из него отношения регулируются <b>швейцарским правом</b>. Исключительная подсудность — <b>Женева</b>, с учётом императивных норм защиты потребителей.</p>",
+  "pied.droits":"© Maison Inner Source","pied.legal":"Правовая информация","pied.confid":"Конфиденциальность"
+ }
+};
+
+const SOBRE=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const q=s=>document.querySelector(s), qa=s=>Array.from(document.querySelectorAll(s));
+let langue='fr',cyrilliqueCharge=false;
+function chargerCyrillique(){
+  if(cyrilliqueCharge)return; cyrilliqueCharge=true;
+  const l=document.createElement('link'); l.rel='stylesheet';
+  l.href='https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=IBM+Plex+Sans:wght@400;500&display=swap';
+  document.head.appendChild(l);
+}
+function peindre(l){
+  const d=DICO[l];
+  qa('[data-i18n]').forEach(el=>{const v=d[el.dataset.i18n]; if(v!==undefined) el.textContent=v;});
+  qa('[data-i18n-html]').forEach(el=>{const v=d[el.dataset.i18nHtml]; if(v!==undefined) el.innerHTML=v;});
+  qa('[data-i18n-aria]').forEach(el=>{const v=d[el.dataset.i18nAria]; if(v!==undefined) el.setAttribute('aria-label',v);});
+  document.title=d['html.title'];
+}
+function placerCurseur(){
+  const a=q('.langues button[aria-current="true"]'),c=q('#curseur-langue');
+  c.style.width=a.offsetWidth+'px'; c.style.transform=`translateX(${a.offsetLeft}px)`;
+}
+function definirLangue(l,animer=true){
+  if(l===langue&&animer)return;
+  if(l==='ru')chargerCyrillique();
+  langue=l; document.documentElement.lang=l;
+  qa('.langues button').forEach(b=>b.setAttribute('aria-current',String(b.dataset.lang===l)));
+  const url=new URL(location); url.searchParams.set('lang',l); history.replaceState({},'',url);
+  if(!animer||SOBRE){peindre(l); requestAnimationFrame(placerCurseur); return;}
+  document.body.classList.add('change');
+  setTimeout(()=>{peindre(l); document.fonts.ready.then(placerCurseur); requestAnimationFrame(()=>document.body.classList.remove('change'));},343);
+}
+qa('.langues button').forEach(b=>b.addEventListener('click',()=>definirLangue(b.dataset.lang)));
+const initiale=new URL(location).searchParams.get('lang');
+definirLangue(DICO[initiale]?initiale:'fr',false);
+addEventListener('resize',placerCurseur);
+document.fonts&&document.fonts.ready.then(placerCurseur);
+
+/* Champ adouci : 15 % d'opacité, aucune concurrence avec le texte */
+const frag=`
+precision highp float;
+varying vec2 vUv;
+uniform vec2 uRes; uniform float uTime;
+float hash(vec2 p){ return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453123); }
+float bruit(vec2 p){
+  vec2 i=floor(p),f=fract(p); vec2 u=f*f*(3.0-2.0*f);
+  return mix(mix(hash(i),hash(i+vec2(1.,0.)),u.x),mix(hash(i+vec2(0.,1.)),hash(i+vec2(1.,1.)),u.x),u.y);
+}
+float fbm(vec2 p){ float v=0.0,a=0.5; for(int i=0;i<4;i++){v+=a*bruit(p); p*=2.03; a*=0.5;} return v; }
+void main(){
+  vec2 uv=vUv; float ratio=uRes.x/uRes.y; vec2 p=vec2(uv.x*ratio,uv.y); float t=uTime;
+  vec2 qq=p*2.4; qq.y -= t*0.022;
+  float w1=fbm(qq), w2=fbm(qq+vec2(4.7,1.3));
+  float f=fbm(qq+(vec2(w1,w2)-0.5)*1.3);
+  float colonne=1.0-smoothstep(0.09,0.40,abs(uv.x-0.72));
+  float sol=smoothstep(-0.05,0.22,uv.y);
+  float ciel=1.0-smoothstep(0.50,0.96,uv.y);
+  float i=pow(max(f,0.0),2.4)*colonne*sol*mix(ciel,1.0,0.4)*2.3;
+  vec3 indigo=vec3(0.114,0.173,0.275), seve=vec3(0.373,0.620,0.494);
+  float h=clamp(uv.y*0.8+f*0.4-0.06,0.0,1.0);
+  vec3 col=mix(indigo,seve,smoothstep(0.10,0.68,h));
+  float g=(hash(uv*uRes+t)-0.5)*0.026;
+  gl_FragColor=vec4(col+g,clamp(i,0.0,1.0));
+}`;
+const cv=q('#champ');
+let renderer,scene,camera,mat,horloge=0,dernier=performance.now(),visible=true;
+try{
+  renderer=new THREE.WebGLRenderer({canvas:cv,alpha:true,antialias:false,powerPreference:'low-power'});
+  renderer.setPixelRatio(Math.min(devicePixelRatio,1.25));
+  renderer.setSize(innerWidth,innerHeight,false);
+  scene=new THREE.Scene(); camera=new THREE.OrthographicCamera(-1,1,1,-1,0,1);
+  mat=new THREE.ShaderMaterial({transparent:true,depthWrite:false,
+    vertexShader:'varying vec2 vUv; void main(){ vUv=uv; gl_Position=vec4(position.xy,0.,1.); }',
+    fragmentShader:frag,
+    uniforms:{uRes:{value:new THREE.Vector2(innerWidth,innerHeight)},uTime:{value:0}}});
+  scene.add(new THREE.Mesh(new THREE.PlaneGeometry(2,2),mat));
+  cv.style.transition='opacity 5500ms cubic-bezier(.34,0,.16,1)';
+  requestAnimationFrame(()=>cv.style.opacity='0.15');
+}catch(e){cv.style.display='none';}
+addEventListener('resize',()=>{ if(!renderer)return; renderer.setSize(innerWidth,innerHeight,false); mat.uniforms.uRes.value.set(innerWidth,innerHeight); });
+document.addEventListener('visibilitychange',()=>{visible=!document.hidden; dernier=performance.now(); if(visible&&!SOBRE)requestAnimationFrame(boucle);});
+function boucle(now){
+  if(!renderer)return;
+  const dt=Math.min((now-dernier)/1000,.05); dernier=now; horloge+=dt;
+  mat.uniforms.uTime.value=horloge; renderer.render(scene,camera);
+  if(visible)requestAnimationFrame(boucle);
+}
+if(renderer){ if(SOBRE){horloge=12; mat.uniforms.uTime.value=horloge; renderer.render(scene,camera);} else requestAnimationFrame(boucle); }
+
+const jauge=q('#jauge'); let tick=false;
+function majJauge(){
+  const max=Math.max(document.documentElement.scrollHeight-innerHeight,1);
+  jauge.style.setProperty('--p',Math.min(scrollY/max,1).toFixed(4)); tick=false;
+}
+addEventListener('scroll',()=>{document.body.classList.toggle('parti',scrollY>60); if(!tick){tick=true; requestAnimationFrame(majJauge);}},{passive:true});
+majJauge();
+</script>
+</body>
+</html>
